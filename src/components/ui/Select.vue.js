@@ -1,23 +1,19 @@
-<template>
-  <select
-    v-bind="$attrs"
-    class="flex h-9 w-full appearance-none rounded-md border border-input bg-background px-3 py-1 text-sm text-foreground shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-  >
-    <slot />
-  </select>
-</template>
-
-<script setup lang="ts">
-defineOptions({ inheritAttrs: false })
-</script>
-/// <reference types="../../../node_modules/.vue-global-types/vue_3.5_0_0_0.d.ts" />
-
+import { computed } from 'vue';
 defineOptions({ inheritAttrs: false });
+const props = defineProps();
+const emit = defineEmits();
+const resolvedValue = computed(() => props.modelValue ?? props.value ?? '');
+const onChange = (event) => {
+    const target = event.target;
+    emit('update:modelValue', target.value);
+};
 debugger; /* PartiallyEnd: #3632/scriptSetup.vue */
 const __VLS_ctx = {};
 let __VLS_components;
 let __VLS_directives;
 __VLS_asFunctionalElement(__VLS_intrinsicElements.select, __VLS_intrinsicElements.select)({
+    ...{ onChange: (__VLS_ctx.onChange) },
+    value: (__VLS_ctx.resolvedValue),
     ...{ class: "flex h-9 w-full appearance-none rounded-md border border-input bg-background px-3 py-1 text-sm text-foreground shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" },
 });
 var __VLS_0 = {};
@@ -47,13 +43,20 @@ var __VLS_1 = __VLS_0;
 var __VLS_dollars;
 const __VLS_self = (await import('vue')).defineComponent({
     setup() {
-        return {};
+        return {
+            resolvedValue: resolvedValue,
+            onChange: onChange,
+        };
     },
+    __typeEmits: {},
+    __typeProps: {},
 });
 const __VLS_component = (await import('vue')).defineComponent({
     setup() {
         return {};
     },
+    __typeEmits: {},
+    __typeProps: {},
 });
 export default {};
 ; /* PartiallyEnd: #4569/main.vue */
