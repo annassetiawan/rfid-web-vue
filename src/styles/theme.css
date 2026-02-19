@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+  --radius: 0.75rem;
+
+  --background: 220 20% 98%;
+  --foreground: 222 24% 16%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 24% 16%;
+
+  --muted: 220 16% 94%;
+  --muted-foreground: 220 10% 42%;
+
+  --border: 220 14% 88%;
+  --input: 220 14% 88%;
+
+  --primary: 263 70% 50%;
+  --primary-foreground: 0 0% 100%;
+  --ring: 263 70% 60%;
+  --accent: 266.37 40% 96%;
+  --accent-foreground: 266.37 92.9% 20%;
+
+  --secondary: 220 16% 94%;
+  --secondary-foreground: 222 24% 16%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 210 40% 98%;
+}

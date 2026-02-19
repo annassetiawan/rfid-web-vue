@@ -1,0 +1,17 @@
+export const localRequestsMock = [
+    { id: 1, requestNumber: 'LR-2026-0001', warehouse: 'Warehouse A', companyName: 'Atlas Retail', requestType: 'Tagging', serviceLevel: 'Standard', status: 'new', requestDate: '2026-02-10', createdDate: '2026-02-09' },
+    { id: 2, requestNumber: 'LR-2026-0002', warehouse: 'Warehouse B', companyName: 'Nova Foods', requestType: 'Transfer', serviceLevel: 'Priority', status: 'in-progress', requestDate: '2026-02-11', createdDate: '2026-02-10' },
+    { id: 3, requestNumber: 'LR-2026-0003', warehouse: 'Dock 1', companyName: 'Prime Textile', requestType: 'Reprint', serviceLevel: 'Standard', status: 'approved', requestDate: '2026-02-11', createdDate: '2026-02-10' },
+    { id: 4, requestNumber: 'LR-2026-0004', warehouse: 'Warehouse C', companyName: 'Zen Cargo', requestType: 'Retagging', serviceLevel: 'Express', status: 'rejected', requestDate: '2026-02-12', createdDate: '2026-02-11' },
+    { id: 5, requestNumber: 'LR-2026-0005', warehouse: 'Warehouse A', companyName: 'Mitra Parts', requestType: 'Tagging', serviceLevel: 'Priority', status: 'approved', requestDate: '2026-02-13', createdDate: '2026-02-12' },
+    { id: 6, requestNumber: 'LR-2026-0006', warehouse: 'Staging Area', companyName: 'Helio Med', requestType: 'Transfer', serviceLevel: 'Standard', status: 'in-progress', requestDate: '2026-02-14', createdDate: '2026-02-13' },
+    { id: 7, requestNumber: 'LR-2026-0007', warehouse: 'Warehouse B', companyName: 'Omni Trade', requestType: 'Reprint', serviceLevel: 'Express', status: 'new', requestDate: '2026-02-14', createdDate: '2026-02-14' },
+    { id: 8, requestNumber: 'LR-2026-0008', warehouse: 'Dock 2', companyName: 'Vertex Equip', requestType: 'Tagging', serviceLevel: 'Standard', status: 'canceled', requestDate: '2026-02-15', createdDate: '2026-02-14' },
+    { id: 9, requestNumber: 'LR-2026-0009', warehouse: 'Warehouse C', companyName: 'Astra Farm', requestType: 'Retagging', serviceLevel: 'Priority', status: 'approved', requestDate: '2026-02-16', createdDate: '2026-02-15' },
+    { id: 10, requestNumber: 'LR-2026-0010', warehouse: 'Warehouse A', companyName: 'Blue Ocean Ltd', requestType: 'Transfer', serviceLevel: 'Standard', status: 'in-progress', requestDate: '2026-02-16', createdDate: '2026-02-15' },
+    { id: 11, requestNumber: 'LR-2026-0011', warehouse: 'Packing Zone', companyName: 'Aruna Logistics', requestType: 'Reprint', serviceLevel: 'Standard', status: 'new', requestDate: '2026-02-17', createdDate: '2026-02-16' },
+    { id: 12, requestNumber: 'LR-2026-0012', warehouse: 'Warehouse B', companyName: 'Delta Auto', requestType: 'Tagging', serviceLevel: 'Express', status: 'approved', requestDate: '2026-02-18', createdDate: '2026-02-17' },
+    { id: 13, requestNumber: 'LR-2026-0013', warehouse: 'Warehouse C', companyName: 'Sigma Household', requestType: 'Transfer', serviceLevel: 'Priority', status: 'rejected', requestDate: '2026-02-18', createdDate: '2026-02-17' },
+    { id: 14, requestNumber: 'LR-2026-0014', warehouse: 'Dock 1', companyName: 'Kirana Mart', requestType: 'Retagging', serviceLevel: 'Standard', status: 'canceled', requestDate: '2026-02-19', createdDate: '2026-02-18' },
+    { id: 15, requestNumber: 'LR-2026-0015', warehouse: 'Warehouse A', companyName: 'Cipta Elektrik', requestType: 'Tagging', serviceLevel: 'Priority', status: 'in-progress', requestDate: '2026-02-19', createdDate: '2026-02-19' },
+];
