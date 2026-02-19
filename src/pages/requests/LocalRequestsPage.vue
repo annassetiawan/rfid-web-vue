@@ -4,7 +4,16 @@
       <p class="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Requests</p>
       <PageHeader :title="pageConfig.title" :description="pageConfig.description">
         <template #actions>
-          <Button @click="goToNewRequest">New Request</Button>
+          <div class="flex items-center gap-2">
+            <Button @click="goToNewRequest">
+              <Plus class="h-4 w-4" />
+              Add New Request
+            </Button>
+            <Button variant="outline" @click="goToAdditionalDelivery">
+              <SlidersHorizontal class="h-4 w-4" />
+              Create Additional Delivery
+            </Button>
+          </div>
         </template>
       </PageHeader>
       <Separator />
@@ -119,6 +128,7 @@ import {
   type SortingState,
   useVueTable,
 } from '@tanstack/vue-table'
+import { Plus, SlidersHorizontal } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import FilterSheet from '@/components/list/FilterSheet.vue'
 import ListCard from '@/components/list/ListCard.vue'
@@ -307,6 +317,10 @@ watch(
 )
 
 const goToNewRequest = () => {
+  router.push(pageConfig.primaryAction.route)
+}
+
+const goToAdditionalDelivery = () => {
   router.push(pageConfig.primaryAction.route)
 }
 
