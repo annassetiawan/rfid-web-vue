@@ -112,7 +112,7 @@ for (const [group] of __VLS_getVForSourceType((__VLS_ctx.groupedItems))) {
             ...{ class: ([
                     __VLS_ctx.isSidebarCollapsed ? 'justify-center' : 'gap-3',
                     __VLS_ctx.isActive(item.to)
-                        ? 'bg-primary text-primary-foreground'
+                        ? 'border border-primary/20 bg-primary/10 text-primary'
                         : 'text-muted-foreground hover:bg-muted hover:text-foreground',
                 ]) },
             title: (item.label),
@@ -123,7 +123,7 @@ for (const [group] of __VLS_getVForSourceType((__VLS_ctx.groupedItems))) {
             ...{ class: ([
                     __VLS_ctx.isSidebarCollapsed ? 'justify-center' : 'gap-3',
                     __VLS_ctx.isActive(item.to)
-                        ? 'bg-primary text-primary-foreground'
+                        ? 'border border-primary/20 bg-primary/10 text-primary'
                         : 'text-muted-foreground hover:bg-muted hover:text-foreground',
                 ]) },
             title: (item.label),

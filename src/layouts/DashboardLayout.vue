@@ -33,7 +33,7 @@
                   :class="[
                     isSidebarCollapsed ? 'justify-center' : 'gap-3',
                     isActive(item.to)
-                      ? 'bg-primary text-primary-foreground'
+                      ? 'border border-primary/20 bg-primary/10 text-primary'
                       : 'text-muted-foreground hover:bg-muted hover:text-foreground',
                   ]"
                   :title="item.label"
