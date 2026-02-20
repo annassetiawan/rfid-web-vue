@@ -3,13 +3,13 @@ const baseBadgeClass = 'border font-medium whitespace-nowrap !rounded-md'
 type BadgeTone = 'emerald' | 'blue' | 'amber' | 'violet' | 'indigo' | 'rose' | 'slate'
 
 const toneClassMap: Record<BadgeTone, string> = {
-  emerald: `${baseBadgeClass} bg-emerald-50 text-emerald-700 border-emerald-200`,
-  blue: `${baseBadgeClass} bg-blue-50 text-blue-700 border-blue-200`,
-  amber: `${baseBadgeClass} bg-amber-50 text-amber-800 border-amber-200`,
-  violet: `${baseBadgeClass} bg-violet-50 text-violet-700 border-violet-200`,
-  indigo: `${baseBadgeClass} bg-indigo-50 text-indigo-700 border-indigo-200`,
-  rose: `${baseBadgeClass} bg-rose-50 text-rose-700 border-rose-200`,
-  slate: `${baseBadgeClass} bg-slate-50 text-slate-700 border-slate-200`,
+  emerald: `${baseBadgeClass} bg-emerald-50 text-emerald-600 border-emerald-200/70`,
+  blue: `${baseBadgeClass} bg-blue-50 text-blue-700 border-blue-200/70`,
+  amber: `${baseBadgeClass} bg-amber-50 text-amber-700 border-amber-200/70`,
+  violet: `${baseBadgeClass} bg-violet-50 text-violet-700 border-violet-200/70`,
+  indigo: `${baseBadgeClass} bg-indigo-50 text-indigo-700 border-indigo-200/70`,
+  rose: `${baseBadgeClass} bg-rose-50 text-rose-700 border-rose-200/70`,
+  slate: `${baseBadgeClass} bg-slate-50 text-slate-700 border-slate-200/70`,
 }
 
 const tone = (value: BadgeTone) => toneClassMap[value]
@@ -54,6 +54,23 @@ export const getWorkflowStatusBadgeClass = (value: string) => {
   if (['completed', 'assigned', 'outbound', 'refurbished'].includes(status)) return tone('violet')
   if (['rejected', 'damaged'].includes(status)) return tone('rose')
   if (['inactive', 'hold', 'canceled', 'cancelled'].includes(status)) return tone('slate')
+  return tone('slate')
+}
+
+export const getCycleCountStatusBadgeClass = (value: string) => {
+  const status = normalized(value)
+  if (status === 'new') return tone('amber')
+  if (status === 'in-progress') return tone('blue')
+  if (status === 'processed') return tone('emerald')
+  if (status === 'cancelled' || status === 'canceled') return tone('rose')
+  return tone('slate')
+}
+
+export const getCycleCountCategoryBadgeClass = (value: string) => {
+  const category = normalized(value)
+  if (category === 'product') return tone('violet')
+  if (category === 'accessory') return tone('blue')
+  if (category === 'all') return tone('slate')
   return tone('slate')
 }
 

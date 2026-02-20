@@ -1,0 +1,39 @@
+export type CycleCountCategory = 'Product' | 'Accessory' | 'All'
+export type CycleCountStatus = 'New' | 'In Progress' | 'Processed' | 'Cancelled'
+
+export type CycleCountRecord = {
+  id: number
+  countId: string
+  category: CycleCountCategory
+  createdDate: string
+  operator: string
+  warehouse: string
+  status: CycleCountStatus
+}
+
+export const cycleCountMock: CycleCountRecord[] = [
+  { id: 1, countId: 'CC-2026-001', category: 'Product', createdDate: '2026-01-03', operator: 'Kamal', warehouse: 'WJKT1', status: 'New' },
+  { id: 2, countId: 'CC-2026-002', category: 'Accessory', createdDate: '2026-01-04', operator: 'Ayu', warehouse: 'WJKT1', status: 'In Progress' },
+  { id: 3, countId: 'CC-2026-003', category: 'All', createdDate: '2026-01-05', operator: 'Rizal', warehouse: 'WJAPAC1', status: 'Processed' },
+  { id: 4, countId: 'CC-2026-004', category: 'Product', createdDate: '2026-01-07', operator: 'Dina', warehouse: 'BULDG-1', status: 'Cancelled' },
+  { id: 5, countId: 'CC-2026-005', category: 'Product', createdDate: '2026-01-09', operator: 'Kamal', warehouse: 'WJKT1', status: 'Processed' },
+  { id: 6, countId: 'CC-2026-006', category: 'Accessory', createdDate: '2026-01-10', operator: 'Ayu', warehouse: 'WJKT1', status: 'New' },
+  { id: 7, countId: 'CC-2026-007', category: 'All', createdDate: '2026-01-11', operator: 'Rizal', warehouse: 'WJAPAC1', status: 'In Progress' },
+  { id: 8, countId: 'CC-2026-008', category: 'Product', createdDate: '2026-01-12', operator: 'Nadia', warehouse: 'WJKT1', status: 'Processed' },
+  { id: 9, countId: 'CC-2026-009', category: 'Accessory', createdDate: '2026-01-13', operator: 'Farhan', warehouse: 'BULDG-1', status: 'Processed' },
+  { id: 10, countId: 'CC-2026-010', category: 'All', createdDate: '2026-01-14', operator: 'Kamal', warehouse: 'WJKT1', status: 'New' },
+  { id: 11, countId: 'CC-2026-011', category: 'Product', createdDate: '2026-01-15', operator: 'Ayu', warehouse: 'WJKT1', status: 'Processed' },
+  { id: 12, countId: 'CC-2026-012', category: 'Accessory', createdDate: '2026-01-16', operator: 'Rizal', warehouse: 'WJAPAC1', status: 'In Progress' },
+  { id: 13, countId: 'CC-2026-013', category: 'All', createdDate: '2026-01-17', operator: 'Dina', warehouse: 'BULDG-1', status: 'Processed' },
+  { id: 14, countId: 'CC-2026-014', category: 'Product', createdDate: '2026-01-18', operator: 'Nadia', warehouse: 'WJKT1', status: 'Cancelled' },
+  { id: 15, countId: 'CC-2026-015', category: 'Accessory', createdDate: '2026-01-19', operator: 'Farhan', warehouse: 'WJKT1', status: 'New' },
+  { id: 16, countId: 'CC-2026-016', category: 'All', createdDate: '2026-01-20', operator: 'Kamal', warehouse: 'WJAPAC1', status: 'Processed' },
+  { id: 17, countId: 'CC-2026-017', category: 'Product', createdDate: '2026-01-21', operator: 'Ayu', warehouse: 'BULDG-1', status: 'In Progress' },
+  { id: 18, countId: 'CC-2026-018', category: 'Accessory', createdDate: '2026-01-22', operator: 'Rizal', warehouse: 'WJKT1', status: 'Processed' },
+  { id: 19, countId: 'CC-2026-019', category: 'All', createdDate: '2026-01-23', operator: 'Dina', warehouse: 'WJAPAC1', status: 'Processed' },
+  { id: 20, countId: 'CC-2026-020', category: 'Product', createdDate: '2026-01-24', operator: 'Nadia', warehouse: 'WJKT1', status: 'New' },
+  { id: 21, countId: 'CC-2026-021', category: 'Accessory', createdDate: '2026-01-25', operator: 'Farhan', warehouse: 'BULDG-1', status: 'Processed' },
+  { id: 22, countId: 'CC-2026-022', category: 'All', createdDate: '2026-01-26', operator: 'Kamal', warehouse: 'WJKT1', status: 'In Progress' },
+  { id: 23, countId: 'CC-2026-023', category: 'Product', createdDate: '2026-01-27', operator: 'Ayu', warehouse: 'WJAPAC1', status: 'Processed' },
+  { id: 24, countId: 'CC-2026-024', category: 'Accessory', createdDate: '2026-01-28', operator: 'Rizal', warehouse: 'WJKT1', status: 'Processed' },
+]

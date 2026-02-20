@@ -44,10 +44,10 @@ const __VLS_ctx = {};
 let __VLS_components;
 let __VLS_directives;
 __VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
-    ...{ class: "rounded-lg border bg-card overflow-hidden" },
+    ...{ class: "rounded-lg border bg-card" },
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
-    ...{ class: "overflow-x-auto" },
+    ...{ class: "overflow-x-auto overflow-y-visible" },
 });
 /** @type {[typeof Table, typeof Table, ]} */ ;
 // @ts-ignore
@@ -202,8 +202,8 @@ var __VLS_2;
 /** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
 /** @type {__VLS_StyleScopedClasses['border']} */ ;
 /** @type {__VLS_StyleScopedClasses['bg-card']} */ ;
-/** @type {__VLS_StyleScopedClasses['overflow-hidden']} */ ;
 /** @type {__VLS_StyleScopedClasses['overflow-x-auto']} */ ;
+/** @type {__VLS_StyleScopedClasses['overflow-y-visible']} */ ;
 /** @type {__VLS_StyleScopedClasses['[&_tr]:border-b']} */ ;
 /** @type {__VLS_StyleScopedClasses['[&_th]:sticky']} */ ;
 /** @type {__VLS_StyleScopedClasses['[&_th]:top-0']} */ ;
