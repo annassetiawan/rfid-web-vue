@@ -591,7 +591,6 @@ const __VLS_70 = __VLS_asFunctionalComponent(DataTable, new DataTable({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     wrapText: (__VLS_ctx.wrapText),
-    tableClass: "min-w-[980px]",
     emptyTitle: "No cycle count sessions found",
     emptyDescription: "Try adjusting filters.",
 }));
@@ -599,7 +598,6 @@ const __VLS_71 = __VLS_70({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     wrapText: (__VLS_ctx.wrapText),
-    tableClass: "min-w-[980px]",
     emptyTitle: "No cycle count sessions found",
     emptyDescription: "Try adjusting filters.",
 }, ...__VLS_functionalComponentArgsRest(__VLS_70));

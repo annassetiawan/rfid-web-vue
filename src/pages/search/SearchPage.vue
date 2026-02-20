@@ -7,7 +7,7 @@
     </section>
 
     <Card class="rounded-lg">
-      <CardHeader class="space-y-4">
+      <CardContent class="space-y-4 pt-6">
         <div class="flex flex-col gap-3 lg:flex-row lg:items-center">
           <div class="relative flex-1">
             <Search class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -18,10 +18,10 @@
               @keydown.enter="applySearch"
             />
           </div>
-          <Button class="h-10" @click="applySearch">Search</Button>
+          <Button class="h-10 lg:px-6" @click="applySearch">Search</Button>
         </div>
 
-        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto]">
           <Select v-model="typeFilter">
             <option value="all">All Modules</option>
             <option value="inventory">Inventory</option>
@@ -41,12 +41,12 @@
             <option value="all">All Warehouse</option>
             <option v-for="warehouse in warehouseOptions" :key="warehouse" :value="warehouse">{{ warehouse }}</option>
           </Select>
-          <Button variant="outline" class="h-10" @click="resetFilters">Reset Filter</Button>
+          <Button variant="outline" class="h-10 lg:w-auto lg:justify-self-end lg:px-6" @click="resetFilters">Reset Filter</Button>
         </div>
-      </CardHeader>
+      </CardContent>
     </Card>
 
-    <Tabs v-model="activeTab" class="space-y-4">
+    <Tabs v-model="activeTab" class="space-y-0">
       <TabsList>
         <TabsTrigger value="all">All</TabsTrigger>
         <TabsTrigger value="inventory">Inventory</TabsTrigger>
@@ -55,15 +55,30 @@
     </Tabs>
 
     <Card class="rounded-lg">
-      <CardHeader class="flex flex-row items-center justify-between">
-        <div>
-          <h2 class="text-base font-semibold">Search Results</h2>
-          <p class="text-sm text-muted-foreground">{{ filteredRows.length }} records found</p>
+      <CardContent class="space-y-4 pt-6">
+        <div
+          v-if="showInitialEmptyState"
+          class="flex min-h-[260px] flex-col items-center justify-center rounded-lg border border-dashed bg-muted/10 px-6 text-center"
+        >
+          <Search class="mb-3 h-8 w-8 text-muted-foreground" />
+          <p class="text-sm font-medium">Type a keyword to start searching</p>
+          <p class="mt-1 max-w-md text-sm text-muted-foreground">
+            Try searching by reference, RFID code, title, or warehouse. You can also combine filters for better results.
+          </p>
         </div>
-        <Badge variant="secondary">Live mock data</Badge>
-      </CardHeader>
-      <CardContent class="space-y-4">
-        <div class="rounded-lg border bg-card overflow-hidden">
+
+        <div
+          v-else-if="showNoResultState"
+          class="flex min-h-[260px] flex-col items-center justify-center rounded-lg border border-dashed bg-muted/10 px-6 text-center"
+        >
+          <SearchX class="mb-3 h-8 w-8 text-muted-foreground" />
+          <p class="text-sm font-medium">No results found</p>
+          <p class="mt-1 max-w-md text-sm text-muted-foreground">
+            Try a different keyword, reset filters, or broaden your search scope.
+          </p>
+        </div>
+
+        <div v-else class="rounded-lg border bg-card overflow-x-auto overflow-y-hidden">
           <Table>
             <TableHeader class="[&_tr]:bg-muted/40">
               <TableRow>
@@ -94,16 +109,11 @@
                   <RowActionsMenu :actions="rowActions" @select="(action) => onSelectAction(action, row)" />
                 </TableCell>
               </TableRow>
-              <TableRow v-if="pagedRows.length === 0">
-                <TableCell colspan="8" class="py-10 text-center text-sm text-muted-foreground">
-                  No search result found. Try changing filters or keyword.
-                </TableCell>
-              </TableRow>
             </TableBody>
           </Table>
         </div>
 
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div v-if="!showInitialEmptyState && !showNoResultState" class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p class="text-sm text-muted-foreground">
             Showing {{ startItem }}-{{ endItem }} of {{ filteredRows.length }} results
           </p>
@@ -120,7 +130,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { Search } from 'lucide-vue-next'
+import { Search, SearchX } from 'lucide-vue-next'
 import { useRoute, useRouter } from 'vue-router'
 import PageHeader from '@/components/list/PageHeader.vue'
 import RowActionsMenu from '@/components/list/RowActionsMenu.vue'
@@ -128,7 +138,6 @@ import Badge from '@/components/ui/Badge.vue'
 import Button from '@/components/ui/Button.vue'
 import Card from '@/components/ui/Card.vue'
 import CardContent from '@/components/ui/CardContent.vue'
-import CardHeader from '@/components/ui/CardHeader.vue'
 import Input from '@/components/ui/Input.vue'
 import Select from '@/components/ui/Select.vue'
 import Separator from '@/components/ui/Separator.vue'
@@ -178,6 +187,14 @@ const filteredRows = computed(() =>
   }),
 )
 
+const hasActiveCriteria = computed(() =>
+  appliedQuery.value.trim().length > 0
+  || activeTab.value !== 'all'
+  || typeFilter.value !== 'all'
+  || statusFilter.value !== 'all'
+  || warehouseFilter.value !== 'all',
+)
+
 const totalPages = computed(() => Math.max(1, Math.ceil(filteredRows.value.length / pageSize)))
 const startItem = computed(() => (filteredRows.value.length === 0 ? 0 : (currentPage.value - 1) * pageSize + 1))
 const endItem = computed(() => Math.min(filteredRows.value.length, currentPage.value * pageSize))
@@ -212,6 +229,9 @@ const applySearch = () => {
     query: appliedQuery.value ? { ...route.query, q: appliedQuery.value } : Object.fromEntries(Object.entries(route.query).filter(([key]) => key !== 'q')),
   })
 }
+
+const showInitialEmptyState = computed(() => !hasActiveCriteria.value)
+const showNoResultState = computed(() => hasActiveCriteria.value && filteredRows.value.length === 0)
 
 const formatStatus = (status: SearchRecordStatus) => {
   if (status === 'in-progress') return 'In Progress'

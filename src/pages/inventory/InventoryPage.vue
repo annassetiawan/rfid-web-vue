@@ -17,33 +17,73 @@
 
       <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <Card class="rounded-lg">
-          <CardHeader class="space-y-1 pb-2">
-            <p class="text-sm text-muted-foreground">Total Items</p>
-            <p class="text-3xl font-semibold leading-none">{{ kpis.totalItems }}</p>
+          <CardHeader class="pb-2">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="text-sm text-muted-foreground">Total Items</p>
+                <p class="text-4xl font-semibold leading-none">{{ kpis.totalItems }}</p>
+              </div>
+              <div class="flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40">
+                <Boxes class="h-4 w-4 text-muted-foreground" />
+              </div>
+            </div>
           </CardHeader>
           <CardContent class="pt-0 text-sm text-muted-foreground">Items in this view</CardContent>
         </Card>
         <Card class="rounded-lg">
-          <CardHeader class="space-y-1 pb-2">
-            <p class="text-sm text-muted-foreground">Available</p>
-            <p class="text-3xl font-semibold leading-none">{{ kpis.availableCount }}</p>
+          <CardHeader class="pb-2">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="text-sm text-muted-foreground">Available</p>
+                <p class="text-4xl font-semibold leading-none">{{ kpis.availableCount }}</p>
+              </div>
+              <div class="flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40">
+                <CircleCheckBig class="h-4 w-4 text-muted-foreground" />
+              </div>
+            </div>
           </CardHeader>
           <CardContent class="pt-0 text-sm text-muted-foreground">Ready in warehouse</CardContent>
         </Card>
         <Card class="rounded-lg">
-          <CardHeader class="space-y-1 pb-2">
-            <p class="text-sm text-muted-foreground">In Transit</p>
-            <p class="text-3xl font-semibold leading-none">{{ kpis.inTransitCount }}</p>
+          <CardHeader class="pb-2">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="text-sm text-muted-foreground">In Transit</p>
+                <p class="text-4xl font-semibold leading-none">{{ kpis.inTransitCount }}</p>
+              </div>
+              <div class="flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40">
+                <Truck class="h-4 w-4 text-muted-foreground" />
+              </div>
+            </div>
           </CardHeader>
           <CardContent class="pt-0 text-sm text-muted-foreground">Currently moving</CardContent>
         </Card>
         <Card :class="['rounded-lg', kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/5' : '']">
-          <CardHeader class="space-y-1 pb-2">
-            <div class="flex items-center justify-between gap-2">
-              <p class="text-sm text-muted-foreground">Issues</p>
-              <Badge v-if="kpis.issuesCount > 0" variant="outline" class="border-destructive/40 text-destructive">Needs attention</Badge>
+          <CardHeader class="pb-2">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2">
+                  <p class="text-sm text-muted-foreground">Issues</p>
+                  <Badge
+                    v-if="kpis.issuesCount > 0"
+                    variant="outline"
+                    class="h-5 shrink-0 whitespace-nowrap rounded-full border-destructive/40 bg-destructive/10 px-2 text-[10px] font-medium leading-none text-destructive"
+                  >
+                    Needs attention
+                  </Badge>
+                </div>
+                <p class="text-4xl font-semibold leading-none">{{ kpis.issuesCount }}</p>
+              </div>
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-md border"
+                :class="kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/10' : 'bg-muted/40'"
+              >
+                <AlertTriangle
+                  class="h-4 w-4"
+                  :class="kpis.issuesCount > 0 ? 'text-destructive' : 'text-muted-foreground'"
+                />
+              </div>
             </div>
-            <p class="text-3xl font-semibold leading-none">{{ kpis.issuesCount }}</p>
           </CardHeader>
           <CardContent class="pt-0 text-sm text-muted-foreground">Damaged or on hold</CardContent>
         </Card>
@@ -122,6 +162,7 @@ import {
   type SortingState,
   useVueTable,
 } from '@tanstack/vue-table'
+import { AlertTriangle, Boxes, CircleCheckBig, Truck } from 'lucide-vue-next'
 import DataTable from '@/components/inventory/DataTable.vue'
 import DataTablePagination from '@/components/inventory/DataTablePagination.vue'
 import DataTableToolbar from '@/components/inventory/DataTableToolbar.vue'
