@@ -82,21 +82,22 @@ export const adminPages = [
         key: 'cycle-count',
         route: '/cycle-count',
         title: 'Cycle Count',
-        description: 'Monitor cycle count execution and reconciliation status.',
-        primaryAction: { label: 'Create Cycle Count', route: '/cycle-count/new' },
+        description: 'Track inventory audit sessions and scan progress.',
+        primaryAction: { label: 'Request Cycle Count', route: '/cycle-count/new' },
         table: {
             columns: [
-                { id: 'countNo', label: 'Count No', defaultVisible: true },
+                { id: 'countId', label: 'ID', defaultVisible: true },
+                { id: 'category', label: 'Category', defaultVisible: true },
+                { id: 'createdDate', label: 'Created Date', defaultVisible: true },
+                { id: 'operator', label: 'Operator', defaultVisible: true },
                 { id: 'warehouse', label: 'Warehouse', defaultVisible: true },
-                { id: 'scope', label: 'Scope', defaultVisible: true },
                 { id: 'status', label: 'Status', defaultVisible: true },
-                { id: 'scheduledAt', label: 'Scheduled At', defaultVisible: true },
             ],
             rowActions: ['view', 'start', 'close'],
         },
         filters: {
             simpleFilters: ['search'],
-            advancedFilters: ['warehouse', 'status', 'scheduledFrom', 'scheduledTo'],
+            advancedFilters: ['countId', 'category', 'operator', 'warehouse', 'status', 'createdDateFrom', 'createdDateTo'],
         },
     },
     {

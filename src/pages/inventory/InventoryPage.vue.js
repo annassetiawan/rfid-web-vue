@@ -8,6 +8,10 @@ import ListCard from '@/components/list/ListCard.vue';
 import PageHeader from '@/components/list/PageHeader.vue';
 import { createInventoryColumns } from '@/components/inventory/columns';
 import { valueUpdater } from '@/lib/utils';
+import Badge from '@/components/ui/Badge.vue';
+import Card from '@/components/ui/Card.vue';
+import CardContent from '@/components/ui/CardContent.vue';
+import CardHeader from '@/components/ui/CardHeader.vue';
 import Separator from '@/components/ui/Separator.vue';
 import Tabs from '@/components/ui/Tabs.vue';
 import TabsContent from '@/components/ui/TabsContent.vue';
@@ -146,6 +150,24 @@ const table = useVueTable({
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
 });
+const normalized = (value) => value.trim().toLowerCase().replace(/\s+/g, '_');
+const visibleItems = computed(() => table.getFilteredRowModel().rows.map((row) => row.original));
+const kpis = computed(() => {
+    const totalItems = visibleItems.value.length;
+    const availableCount = visibleItems.value.filter((item) => normalized(item.inventoryStatus) === 'in_stock').length;
+    const inTransitCount = visibleItems.value.filter((item) => normalized(item.inventoryStatus) === 'in_transit').length;
+    const issuesCount = visibleItems.value.filter((item) => {
+        const isDamaged = normalized(item.condition) === 'damaged';
+        const isHold = normalized(item.stagingStatus) === 'hold';
+        return isDamaged || isHold;
+    }).length;
+    return {
+        totalItems,
+        availableCount,
+        inTransitCount,
+        issuesCount,
+    };
+});
 const applyFilters = (nextFilters) => {
     filters.value = { ...nextFilters };
     table.setPageIndex(0);
@@ -228,31 +250,199 @@ const __VLS_16 = __VLS_15({
 __VLS_17.slots.default;
 var __VLS_17;
 var __VLS_11;
-/** @type {[typeof TabsContent, typeof TabsContent, ]} */ ;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "grid gap-4 sm:grid-cols-2 xl:grid-cols-4" },
+});
+/** @type {[typeof Card, typeof Card, ]} */ ;
 // @ts-ignore
-const __VLS_18 = __VLS_asFunctionalComponent(TabsContent, new TabsContent({
-    value: "products",
+const __VLS_18 = __VLS_asFunctionalComponent(Card, new Card({
+    ...{ class: "rounded-lg" },
 }));
 const __VLS_19 = __VLS_18({
-    value: "products",
+    ...{ class: "rounded-lg" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_18));
 __VLS_20.slots.default;
-/** @type {[typeof ListCard, typeof ListCard, ]} */ ;
+/** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
 // @ts-ignore
-const __VLS_21 = __VLS_asFunctionalComponent(ListCard, new ListCard({
-    title: "Products",
-    description: "Monitor RFID-tagged products across warehouse locations, status, and lifecycle stages.",
-    compact: true,
+const __VLS_21 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
+    ...{ class: "space-y-1 pb-2" },
 }));
 const __VLS_22 = __VLS_21({
+    ...{ class: "space-y-1 pb-2" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_21));
+__VLS_23.slots.default;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-sm text-muted-foreground" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-3xl font-semibold leading-none" },
+});
+(__VLS_ctx.kpis.totalItems);
+var __VLS_23;
+/** @type {[typeof CardContent, typeof CardContent, ]} */ ;
+// @ts-ignore
+const __VLS_24 = __VLS_asFunctionalComponent(CardContent, new CardContent({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}));
+const __VLS_25 = __VLS_24({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_24));
+__VLS_26.slots.default;
+var __VLS_26;
+var __VLS_20;
+/** @type {[typeof Card, typeof Card, ]} */ ;
+// @ts-ignore
+const __VLS_27 = __VLS_asFunctionalComponent(Card, new Card({
+    ...{ class: "rounded-lg" },
+}));
+const __VLS_28 = __VLS_27({
+    ...{ class: "rounded-lg" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_27));
+__VLS_29.slots.default;
+/** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
+// @ts-ignore
+const __VLS_30 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
+    ...{ class: "space-y-1 pb-2" },
+}));
+const __VLS_31 = __VLS_30({
+    ...{ class: "space-y-1 pb-2" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_30));
+__VLS_32.slots.default;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-sm text-muted-foreground" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-3xl font-semibold leading-none" },
+});
+(__VLS_ctx.kpis.availableCount);
+var __VLS_32;
+/** @type {[typeof CardContent, typeof CardContent, ]} */ ;
+// @ts-ignore
+const __VLS_33 = __VLS_asFunctionalComponent(CardContent, new CardContent({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}));
+const __VLS_34 = __VLS_33({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_33));
+__VLS_35.slots.default;
+var __VLS_35;
+var __VLS_29;
+/** @type {[typeof Card, typeof Card, ]} */ ;
+// @ts-ignore
+const __VLS_36 = __VLS_asFunctionalComponent(Card, new Card({
+    ...{ class: "rounded-lg" },
+}));
+const __VLS_37 = __VLS_36({
+    ...{ class: "rounded-lg" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_36));
+__VLS_38.slots.default;
+/** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
+// @ts-ignore
+const __VLS_39 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
+    ...{ class: "space-y-1 pb-2" },
+}));
+const __VLS_40 = __VLS_39({
+    ...{ class: "space-y-1 pb-2" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_39));
+__VLS_41.slots.default;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-sm text-muted-foreground" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-3xl font-semibold leading-none" },
+});
+(__VLS_ctx.kpis.inTransitCount);
+var __VLS_41;
+/** @type {[typeof CardContent, typeof CardContent, ]} */ ;
+// @ts-ignore
+const __VLS_42 = __VLS_asFunctionalComponent(CardContent, new CardContent({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}));
+const __VLS_43 = __VLS_42({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_42));
+__VLS_44.slots.default;
+var __VLS_44;
+var __VLS_38;
+/** @type {[typeof Card, typeof Card, ]} */ ;
+// @ts-ignore
+const __VLS_45 = __VLS_asFunctionalComponent(Card, new Card({
+    ...{ class: (['rounded-lg', __VLS_ctx.kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/5' : '']) },
+}));
+const __VLS_46 = __VLS_45({
+    ...{ class: (['rounded-lg', __VLS_ctx.kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/5' : '']) },
+}, ...__VLS_functionalComponentArgsRest(__VLS_45));
+__VLS_47.slots.default;
+/** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
+// @ts-ignore
+const __VLS_48 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
+    ...{ class: "space-y-1 pb-2" },
+}));
+const __VLS_49 = __VLS_48({
+    ...{ class: "space-y-1 pb-2" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_48));
+__VLS_50.slots.default;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex items-center justify-between gap-2" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-sm text-muted-foreground" },
+});
+if (__VLS_ctx.kpis.issuesCount > 0) {
+    /** @type {[typeof Badge, typeof Badge, ]} */ ;
+    // @ts-ignore
+    const __VLS_51 = __VLS_asFunctionalComponent(Badge, new Badge({
+        variant: "outline",
+        ...{ class: "border-destructive/40 text-destructive" },
+    }));
+    const __VLS_52 = __VLS_51({
+        variant: "outline",
+        ...{ class: "border-destructive/40 text-destructive" },
+    }, ...__VLS_functionalComponentArgsRest(__VLS_51));
+    __VLS_53.slots.default;
+    var __VLS_53;
+}
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-3xl font-semibold leading-none" },
+});
+(__VLS_ctx.kpis.issuesCount);
+var __VLS_50;
+/** @type {[typeof CardContent, typeof CardContent, ]} */ ;
+// @ts-ignore
+const __VLS_54 = __VLS_asFunctionalComponent(CardContent, new CardContent({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}));
+const __VLS_55 = __VLS_54({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_54));
+__VLS_56.slots.default;
+var __VLS_56;
+var __VLS_47;
+/** @type {[typeof TabsContent, typeof TabsContent, ]} */ ;
+// @ts-ignore
+const __VLS_57 = __VLS_asFunctionalComponent(TabsContent, new TabsContent({
+    value: "products",
+}));
+const __VLS_58 = __VLS_57({
+    value: "products",
+}, ...__VLS_functionalComponentArgsRest(__VLS_57));
+__VLS_59.slots.default;
+/** @type {[typeof ListCard, typeof ListCard, ]} */ ;
+// @ts-ignore
+const __VLS_60 = __VLS_asFunctionalComponent(ListCard, new ListCard({
     title: "Products",
     description: "Monitor RFID-tagged products across warehouse locations, status, and lifecycle stages.",
     compact: true,
-}, ...__VLS_functionalComponentArgsRest(__VLS_21));
-__VLS_23.slots.default;
+}));
+const __VLS_61 = __VLS_60({
+    title: "Products",
+    description: "Monitor RFID-tagged products across warehouse locations, status, and lifecycle stages.",
+    compact: true,
+}, ...__VLS_functionalComponentArgsRest(__VLS_60));
+__VLS_62.slots.default;
 /** @type {[typeof DataTableToolbar, ]} */ ;
 // @ts-ignore
-const __VLS_24 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableToolbar({
+const __VLS_63 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableToolbar({
     ...{ 'onOpenFilters': {} },
     ...{ 'onUpdate:density': {} },
     ...{ 'onExportCsv': {} },
@@ -261,7 +451,7 @@ const __VLS_24 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableTool
     density: (__VLS_ctx.density),
     appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
 }));
-const __VLS_25 = __VLS_24({
+const __VLS_64 = __VLS_63({
     ...{ 'onOpenFilters': {} },
     ...{ 'onUpdate:density': {} },
     ...{ 'onExportCsv': {} },
@@ -269,80 +459,80 @@ const __VLS_25 = __VLS_24({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
-}, ...__VLS_functionalComponentArgsRest(__VLS_24));
-let __VLS_27;
-let __VLS_28;
-let __VLS_29;
-const __VLS_30 = {
+}, ...__VLS_functionalComponentArgsRest(__VLS_63));
+let __VLS_66;
+let __VLS_67;
+let __VLS_68;
+const __VLS_69 = {
     onOpenFilters: (...[$event]) => {
         __VLS_ctx.filtersOpen = true;
     }
 };
-const __VLS_31 = {
+const __VLS_70 = {
     'onUpdate:density': (...[$event]) => {
         __VLS_ctx.density = $event;
     }
 };
-const __VLS_32 = {
+const __VLS_71 = {
     onExportCsv: (__VLS_ctx.onExportCsv)
 };
-const __VLS_33 = {
+const __VLS_72 = {
     onExportExcel: (__VLS_ctx.onExportExcel)
 };
-var __VLS_26;
+var __VLS_65;
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
     ...{ class: "text-sm text-muted-foreground" },
 });
 (__VLS_ctx.table.getFilteredRowModel().rows.length);
 /** @type {[typeof DataTable, ]} */ ;
 // @ts-ignore
-const __VLS_34 = __VLS_asFunctionalComponent(DataTable, new DataTable({
+const __VLS_73 = __VLS_asFunctionalComponent(DataTable, new DataTable({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
 }));
-const __VLS_35 = __VLS_34({
+const __VLS_74 = __VLS_73({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
-}, ...__VLS_functionalComponentArgsRest(__VLS_34));
+}, ...__VLS_functionalComponentArgsRest(__VLS_73));
 /** @type {[typeof DataTablePagination, ]} */ ;
 // @ts-ignore
-const __VLS_37 = __VLS_asFunctionalComponent(DataTablePagination, new DataTablePagination({
+const __VLS_76 = __VLS_asFunctionalComponent(DataTablePagination, new DataTablePagination({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
 }));
-const __VLS_38 = __VLS_37({
+const __VLS_77 = __VLS_76({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
-}, ...__VLS_functionalComponentArgsRest(__VLS_37));
-var __VLS_23;
-var __VLS_20;
+}, ...__VLS_functionalComponentArgsRest(__VLS_76));
+var __VLS_62;
+var __VLS_59;
 /** @type {[typeof TabsContent, typeof TabsContent, ]} */ ;
 // @ts-ignore
-const __VLS_40 = __VLS_asFunctionalComponent(TabsContent, new TabsContent({
+const __VLS_79 = __VLS_asFunctionalComponent(TabsContent, new TabsContent({
     value: "accessories",
 }));
-const __VLS_41 = __VLS_40({
+const __VLS_80 = __VLS_79({
     value: "accessories",
-}, ...__VLS_functionalComponentArgsRest(__VLS_40));
-__VLS_42.slots.default;
+}, ...__VLS_functionalComponentArgsRest(__VLS_79));
+__VLS_81.slots.default;
 /** @type {[typeof ListCard, typeof ListCard, ]} */ ;
 // @ts-ignore
-const __VLS_43 = __VLS_asFunctionalComponent(ListCard, new ListCard({
+const __VLS_82 = __VLS_asFunctionalComponent(ListCard, new ListCard({
     title: "Accessories",
     description: "Track accessory items, availability, and movement details with the same operational controls.",
     compact: true,
 }));
-const __VLS_44 = __VLS_43({
+const __VLS_83 = __VLS_82({
     title: "Accessories",
     description: "Track accessory items, availability, and movement details with the same operational controls.",
     compact: true,
-}, ...__VLS_functionalComponentArgsRest(__VLS_43));
-__VLS_45.slots.default;
+}, ...__VLS_functionalComponentArgsRest(__VLS_82));
+__VLS_84.slots.default;
 /** @type {[typeof DataTableToolbar, ]} */ ;
 // @ts-ignore
-const __VLS_46 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableToolbar({
+const __VLS_85 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableToolbar({
     ...{ 'onOpenFilters': {} },
     ...{ 'onUpdate:density': {} },
     ...{ 'onExportCsv': {} },
@@ -351,7 +541,7 @@ const __VLS_46 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableTool
     density: (__VLS_ctx.density),
     appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
 }));
-const __VLS_47 = __VLS_46({
+const __VLS_86 = __VLS_85({
     ...{ 'onOpenFilters': {} },
     ...{ 'onUpdate:density': {} },
     ...{ 'onExportCsv': {} },
@@ -359,82 +549,82 @@ const __VLS_47 = __VLS_46({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
-}, ...__VLS_functionalComponentArgsRest(__VLS_46));
-let __VLS_49;
-let __VLS_50;
-let __VLS_51;
-const __VLS_52 = {
+}, ...__VLS_functionalComponentArgsRest(__VLS_85));
+let __VLS_88;
+let __VLS_89;
+let __VLS_90;
+const __VLS_91 = {
     onOpenFilters: (...[$event]) => {
         __VLS_ctx.filtersOpen = true;
     }
 };
-const __VLS_53 = {
+const __VLS_92 = {
     'onUpdate:density': (...[$event]) => {
         __VLS_ctx.density = $event;
     }
 };
-const __VLS_54 = {
+const __VLS_93 = {
     onExportCsv: (__VLS_ctx.onExportCsv)
 };
-const __VLS_55 = {
+const __VLS_94 = {
     onExportExcel: (__VLS_ctx.onExportExcel)
 };
-var __VLS_48;
+var __VLS_87;
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
     ...{ class: "text-sm text-muted-foreground" },
 });
 (__VLS_ctx.table.getFilteredRowModel().rows.length);
 /** @type {[typeof DataTable, ]} */ ;
 // @ts-ignore
-const __VLS_56 = __VLS_asFunctionalComponent(DataTable, new DataTable({
+const __VLS_95 = __VLS_asFunctionalComponent(DataTable, new DataTable({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
 }));
-const __VLS_57 = __VLS_56({
+const __VLS_96 = __VLS_95({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
-}, ...__VLS_functionalComponentArgsRest(__VLS_56));
+}, ...__VLS_functionalComponentArgsRest(__VLS_95));
 /** @type {[typeof DataTablePagination, ]} */ ;
 // @ts-ignore
-const __VLS_59 = __VLS_asFunctionalComponent(DataTablePagination, new DataTablePagination({
+const __VLS_98 = __VLS_asFunctionalComponent(DataTablePagination, new DataTablePagination({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
 }));
-const __VLS_60 = __VLS_59({
+const __VLS_99 = __VLS_98({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
-}, ...__VLS_functionalComponentArgsRest(__VLS_59));
-var __VLS_45;
-var __VLS_42;
+}, ...__VLS_functionalComponentArgsRest(__VLS_98));
+var __VLS_84;
+var __VLS_81;
 var __VLS_8;
 /** @type {[typeof InventoryFiltersSheet, ]} */ ;
 // @ts-ignore
-const __VLS_62 = __VLS_asFunctionalComponent(InventoryFiltersSheet, new InventoryFiltersSheet({
+const __VLS_101 = __VLS_asFunctionalComponent(InventoryFiltersSheet, new InventoryFiltersSheet({
     ...{ 'onApply': {} },
     ...{ 'onClear': {} },
     modelValue: (__VLS_ctx.filtersOpen),
     filters: (__VLS_ctx.filters),
     options: (__VLS_ctx.filterOptions),
 }));
-const __VLS_63 = __VLS_62({
+const __VLS_102 = __VLS_101({
     ...{ 'onApply': {} },
     ...{ 'onClear': {} },
     modelValue: (__VLS_ctx.filtersOpen),
     filters: (__VLS_ctx.filters),
     options: (__VLS_ctx.filterOptions),
-}, ...__VLS_functionalComponentArgsRest(__VLS_62));
-let __VLS_65;
-let __VLS_66;
-let __VLS_67;
-const __VLS_68 = {
+}, ...__VLS_functionalComponentArgsRest(__VLS_101));
+let __VLS_104;
+let __VLS_105;
+let __VLS_106;
+const __VLS_107 = {
     onApply: (__VLS_ctx.applyFilters)
 };
-const __VLS_69 = {
+const __VLS_108 = {
     onClear: (__VLS_ctx.clearFilters)
 };
-var __VLS_64;
+var __VLS_103;
 /** @type {__VLS_StyleScopedClasses['container']} */ ;
 /** @type {__VLS_StyleScopedClasses['max-w-6xl']} */ ;
 /** @type {__VLS_StyleScopedClasses['py-6']} */ ;
@@ -446,6 +636,60 @@ var __VLS_64;
 /** @type {__VLS_StyleScopedClasses['tracking-[0.16em]']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
 /** @type {__VLS_StyleScopedClasses['space-y-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['grid']} */ ;
+/** @type {__VLS_StyleScopedClasses['gap-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['sm:grid-cols-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['xl:grid-cols-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
+/** @type {__VLS_StyleScopedClasses['space-y-1']} */ ;
+/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-3xl']} */ ;
+/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
+/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
+/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
+/** @type {__VLS_StyleScopedClasses['space-y-1']} */ ;
+/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-3xl']} */ ;
+/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
+/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
+/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
+/** @type {__VLS_StyleScopedClasses['space-y-1']} */ ;
+/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-3xl']} */ ;
+/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
+/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
+/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
+/** @type {__VLS_StyleScopedClasses['space-y-1']} */ ;
+/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['justify-between']} */ ;
+/** @type {__VLS_StyleScopedClasses['gap-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['border-destructive/40']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-destructive']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-3xl']} */ ;
+/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
+/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
+/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
@@ -460,6 +704,10 @@ const __VLS_self = (await import('vue')).defineComponent({
             InventoryFiltersSheet: InventoryFiltersSheet,
             ListCard: ListCard,
             PageHeader: PageHeader,
+            Badge: Badge,
+            Card: Card,
+            CardContent: CardContent,
+            CardHeader: CardHeader,
             Separator: Separator,
             Tabs: Tabs,
             TabsContent: TabsContent,
@@ -472,6 +720,7 @@ const __VLS_self = (await import('vue')).defineComponent({
             filterOptions: filterOptions,
             appliedFiltersCount: appliedFiltersCount,
             table: table,
+            kpis: kpis,
             applyFilters: applyFilters,
             clearFilters: clearFilters,
             onExportCsv: onExportCsv,

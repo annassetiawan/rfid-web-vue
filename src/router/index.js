@@ -60,6 +60,11 @@ const routes = [
                 component: () => import('../pages/cycle-count/CycleCountPage.vue'),
             },
             {
+                path: 'cycle-count/new',
+                name: 'cycle-count-new',
+                component: () => import('../pages/cycle-count/NewCycleCountPage.vue'),
+            },
+            {
                 path: 'cycle-count/:id',
                 name: 'cycle-count-detail',
                 component: () => import('../pages/cycle-count/CycleCountDetailPage.vue'),

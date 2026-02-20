@@ -15,6 +15,40 @@
         <TabsTrigger value="accessories">Accessories</TabsTrigger>
       </TabsList>
 
+      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <Card class="rounded-lg">
+          <CardHeader class="space-y-1 pb-2">
+            <p class="text-sm text-muted-foreground">Total Items</p>
+            <p class="text-3xl font-semibold leading-none">{{ kpis.totalItems }}</p>
+          </CardHeader>
+          <CardContent class="pt-0 text-sm text-muted-foreground">Items in this view</CardContent>
+        </Card>
+        <Card class="rounded-lg">
+          <CardHeader class="space-y-1 pb-2">
+            <p class="text-sm text-muted-foreground">Available</p>
+            <p class="text-3xl font-semibold leading-none">{{ kpis.availableCount }}</p>
+          </CardHeader>
+          <CardContent class="pt-0 text-sm text-muted-foreground">Ready in warehouse</CardContent>
+        </Card>
+        <Card class="rounded-lg">
+          <CardHeader class="space-y-1 pb-2">
+            <p class="text-sm text-muted-foreground">In Transit</p>
+            <p class="text-3xl font-semibold leading-none">{{ kpis.inTransitCount }}</p>
+          </CardHeader>
+          <CardContent class="pt-0 text-sm text-muted-foreground">Currently moving</CardContent>
+        </Card>
+        <Card :class="['rounded-lg', kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/5' : '']">
+          <CardHeader class="space-y-1 pb-2">
+            <div class="flex items-center justify-between gap-2">
+              <p class="text-sm text-muted-foreground">Issues</p>
+              <Badge v-if="kpis.issuesCount > 0" variant="outline" class="border-destructive/40 text-destructive">Needs attention</Badge>
+            </div>
+            <p class="text-3xl font-semibold leading-none">{{ kpis.issuesCount }}</p>
+          </CardHeader>
+          <CardContent class="pt-0 text-sm text-muted-foreground">Damaged or on hold</CardContent>
+        </Card>
+      </div>
+
       <TabsContent value="products">
         <ListCard
           title="Products"
@@ -96,6 +130,10 @@ import ListCard from '@/components/list/ListCard.vue'
 import PageHeader from '@/components/list/PageHeader.vue'
 import { createInventoryColumns, type InventoryItem } from '@/components/inventory/columns'
 import { valueUpdater } from '@/lib/utils'
+import Badge from '@/components/ui/Badge.vue'
+import Card from '@/components/ui/Card.vue'
+import CardContent from '@/components/ui/CardContent.vue'
+import CardHeader from '@/components/ui/CardHeader.vue'
 import Separator from '@/components/ui/Separator.vue'
 import Tabs from '@/components/ui/Tabs.vue'
 import TabsContent from '@/components/ui/TabsContent.vue'
@@ -248,6 +286,28 @@ const table = useVueTable({
   getFilteredRowModel: getFilteredRowModel(),
   getSortedRowModel: getSortedRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
+})
+
+const normalized = (value: string) => value.trim().toLowerCase().replace(/\s+/g, '_')
+
+const visibleItems = computed<InventoryItem[]>(() => table.getFilteredRowModel().rows.map((row) => row.original))
+
+const kpis = computed(() => {
+  const totalItems = visibleItems.value.length
+  const availableCount = visibleItems.value.filter((item) => normalized(item.inventoryStatus) === 'in_stock').length
+  const inTransitCount = visibleItems.value.filter((item) => normalized(item.inventoryStatus) === 'in_transit').length
+  const issuesCount = visibleItems.value.filter((item) => {
+    const isDamaged = normalized(item.condition) === 'damaged'
+    const isHold = normalized(item.stagingStatus) === 'hold'
+    return isDamaged || isHold
+  }).length
+
+  return {
+    totalItems,
+    availableCount,
+    inTransitCount,
+    issuesCount,
+  }
 })
 
 const applyFilters = (nextFilters: InventoryFilters) => {

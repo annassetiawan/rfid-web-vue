@@ -4,16 +4,26 @@
       <h1 class="text-2xl font-semibold tracking-tight text-foreground">{{ title }}</h1>
       <p class="mt-1 text-sm text-muted-foreground">{{ subtitle }}</p>
     </div>
-    <Button v-if="actionLabel">{{ actionLabel }}</Button>
+    <Button v-if="actionLabel">
+      <Plus v-if="showActionIcon" class="h-4 w-4" />
+      {{ actionLabel }}
+    </Button>
   </section>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { Plus } from 'lucide-vue-next'
 import Button from '../ui/Button.vue'
 
-defineProps<{
+const props = defineProps<{
   title: string
   subtitle: string
   actionLabel?: string
 }>()
+
+const showActionIcon = computed(() => {
+  const label = (props.actionLabel ?? '').toLowerCase()
+  return /(add|create|new|invite|compose|request|connect)/.test(label)
+})
 </script>

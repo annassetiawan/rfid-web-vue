@@ -1,6 +1,6 @@
 <template>
-  <div class="rounded-lg border bg-card overflow-hidden">
-    <div class="overflow-x-auto">
+  <div class="rounded-lg border bg-card">
+    <div class="overflow-x-auto overflow-y-visible">
       <Table :class="tableClass">
       <TableHeader class="[&_tr]:border-b [&_th]:sticky [&_th]:top-0 [&_th]:z-10">
         <TableRow
