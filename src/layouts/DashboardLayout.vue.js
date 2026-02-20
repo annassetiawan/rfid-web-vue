@@ -297,7 +297,10 @@ __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)(
     ...{ class: "text-muted-foreground" },
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.main, __VLS_intrinsicElements.main)({
-    ...{ class: "mx-auto w-full max-w-6xl flex-1 overflow-auto px-4 py-6 sm:px-6 lg:px-8" },
+    ...{ class: "flex-1 overflow-y-auto overflow-x-hidden" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8" },
 });
 const __VLS_44 = {}.RouterView;
 /** @type {[typeof __VLS_components.RouterView, ]} */ ;
@@ -432,11 +435,12 @@ const __VLS_46 = __VLS_45({}, ...__VLS_functionalComponentArgsRest(__VLS_45));
 /** @type {__VLS_StyleScopedClasses['font-medium']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-foreground']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex-1']} */ ;
+/** @type {__VLS_StyleScopedClasses['overflow-y-auto']} */ ;
+/** @type {__VLS_StyleScopedClasses['overflow-x-hidden']} */ ;
 /** @type {__VLS_StyleScopedClasses['mx-auto']} */ ;
 /** @type {__VLS_StyleScopedClasses['w-full']} */ ;
 /** @type {__VLS_StyleScopedClasses['max-w-6xl']} */ ;
-/** @type {__VLS_StyleScopedClasses['flex-1']} */ ;
-/** @type {__VLS_StyleScopedClasses['overflow-auto']} */ ;
 /** @type {__VLS_StyleScopedClasses['px-4']} */ ;
 /** @type {__VLS_StyleScopedClasses['py-6']} */ ;
 /** @type {__VLS_StyleScopedClasses['sm:px-6']} */ ;

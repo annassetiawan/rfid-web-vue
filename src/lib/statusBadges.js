@@ -102,3 +102,75 @@ export const getSearchTypeBadgeClass = (value) => {
         return tone('amber');
     return tone('slate');
 };
+export const getScannerStateBadgeClass = (value) => {
+    const status = normalized(value);
+    if (status === 'working')
+        return tone('emerald');
+    if (status === 'new')
+        return tone('amber');
+    if (status === 'test')
+        return tone('blue');
+    if (status === 'faulty')
+        return tone('rose');
+    return tone('slate');
+};
+export const getUnitCategoryBadgeClass = (value) => {
+    const category = normalized(value);
+    if (category === 'main' || category === 'main-product')
+        return tone('blue');
+    if (category === 'accessory')
+        return tone('amber');
+    return tone('slate');
+};
+export const getUserRoleBadgeClass = (value) => {
+    const role = normalized(value);
+    if (role === 'admin')
+        return tone('violet');
+    if (role === 'admin-eval')
+        return tone('indigo');
+    if (role === 'warehouse-operator')
+        return tone('blue');
+    return tone('slate');
+};
+export const getLogisticEmailTypeBadgeClass = (value) => {
+    const type = normalized(value);
+    if (type === 'warehouse')
+        return tone('indigo');
+    if (type === 'cc')
+        return tone('blue');
+    return tone('slate');
+};
+export const getTicketTypeBadgeClass = (value) => {
+    const type = normalized(value);
+    if (type === 'bug')
+        return tone('rose');
+    if (type === 'request')
+        return tone('blue');
+    if (type === 'question')
+        return tone('indigo');
+    return tone('slate');
+};
+export const getTicketStatusBadgeClass = (value) => {
+    const status = normalized(value);
+    if (status === 'open')
+        return tone('amber');
+    if (status === 'in-progress')
+        return tone('blue');
+    if (status === 'resolved')
+        return tone('emerald');
+    if (status === 'closed')
+        return tone('slate');
+    return tone('slate');
+};
+export const getTicketPriorityBadgeClass = (value) => {
+    const priority = normalized(value);
+    if (priority === 'low')
+        return tone('slate');
+    if (priority === 'medium')
+        return tone('blue');
+    if (priority === 'high')
+        return tone('amber');
+    if (priority === 'urgent')
+        return tone('rose');
+    return tone('slate');
+};

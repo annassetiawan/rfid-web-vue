@@ -19,6 +19,51 @@
       <Separator />
     </section>
 
+    <div class="grid gap-4 md:grid-cols-3">
+      <Card class="rounded-lg">
+        <CardHeader class="pb-2">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="text-sm text-muted-foreground">Total Requests</p>
+              <p class="text-4xl font-semibold leading-none">{{ requestSummary.total }}</p>
+            </div>
+            <div class="flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40">
+              <ListChecks class="h-4 w-4 text-muted-foreground" />
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent class="pt-0 text-sm text-muted-foreground">All requests in current result set.</CardContent>
+      </Card>
+      <Card class="rounded-lg">
+        <CardHeader class="pb-2">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="text-sm text-muted-foreground">In Progress</p>
+              <p class="text-4xl font-semibold leading-none">{{ requestSummary.inProgress }}</p>
+            </div>
+            <div class="flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40">
+              <LoaderCircle class="h-4 w-4 text-muted-foreground" />
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent class="pt-0 text-sm text-muted-foreground">Requests currently being processed.</CardContent>
+      </Card>
+      <Card class="rounded-lg">
+        <CardHeader class="pb-2">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="text-sm text-muted-foreground">Approved</p>
+              <p class="text-4xl font-semibold leading-none">{{ requestSummary.approved }}</p>
+            </div>
+            <div class="flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40">
+              <CircleCheckBig class="h-4 w-4 text-muted-foreground" />
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent class="pt-0 text-sm text-muted-foreground">Requests approved and ready for execution.</CardContent>
+      </Card>
+    </div>
+
     <ListCard title="Local Requests" description="Monitor and manage submitted local requests across all warehouses." compact>
       <DataTableToolbar
         :table="table"
@@ -43,7 +88,6 @@
         :table="table"
         :density="density"
         :wrap-text="wrapText"
-        table-class="min-w-[1120px]"
         empty-title="No requests found"
         empty-description="Try adjusting filters."
       />
@@ -113,6 +157,137 @@
         </div>
       </div>
     </FilterSheet>
+
+    <Sheet v-model="detailOpen">
+      <div v-if="selectedRequest" class="flex h-full flex-col gap-4">
+        <div class="flex-1 space-y-5 overflow-y-auto pr-1">
+          <section class="rounded-lg border border-border/60 p-4">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <p class="text-xs uppercase tracking-wide text-muted-foreground">Request Detail</p>
+                <p class="text-xl font-semibold leading-none">{{ selectedRequest.requestNumber }}</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <Badge variant="outline" :class="getRequestTypeBadgeClass(selectedRequest.requestType)">
+                  {{ selectedRequest.requestType }}
+                </Badge>
+                <Badge variant="outline" :class="getRequestStatusBadgeClass(selectedRequest.status)">
+                  {{ formatStatus(selectedRequest.status) }}
+                </Badge>
+              </div>
+            </div>
+            <div class="mt-4 grid grid-cols-2 gap-4 text-sm [&>div]:min-w-0">
+              <div>
+                <p class="text-xs uppercase tracking-wide text-muted-foreground">Ship From</p>
+                <p class="font-medium">{{ selectedRequest.warehouse }}</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wide text-muted-foreground">Service Level</p>
+                <p class="font-medium">{{ selectedRequest.serviceLevel }}</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wide text-muted-foreground">Request Type</p>
+                <p class="font-medium">{{ selectedRequest.requestType }}</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wide text-muted-foreground">Note</p>
+                <p class="break-words font-medium">{{ getRequestNote(selectedRequest) }}</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-y-2">
+            <h3 class="text-lg font-semibold leading-none">Unit</h3>
+            <div class="overflow-hidden rounded-lg border border-border/60">
+              <div class="flex items-center justify-between border-b border-border/60 bg-muted/30 px-4 py-3">
+                <p class="font-medium">{{ getUnitMeta(selectedRequest).header }}</p>
+                <p class="text-sm text-muted-foreground">{{ getUnitMeta(selectedRequest).category }}</p>
+              </div>
+              <div class="grid grid-cols-4 gap-3 border-b border-border/60 px-4 py-2 text-xs text-muted-foreground">
+                <p>No</p>
+                <p>Accessories</p>
+                <p>RFID Label</p>
+                <p>Type</p>
+              </div>
+              <div class="grid grid-cols-4 gap-3 px-4 py-3 text-sm">
+                <p>1</p>
+                <p>{{ getUnitMeta(selectedRequest).accessory }}</p>
+                <p>{{ getUnitMeta(selectedRequest).rfidLabel }}</p>
+                <div>
+                  <Badge variant="outline" class="border-violet-200/70 bg-violet-50 text-violet-700">Mandatory</Badge>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-y-2">
+            <h3 class="text-lg font-semibold leading-none">Customer</h3>
+            <div class="rounded-lg border border-border/60 p-4 text-sm">
+              <div class="grid grid-cols-2 gap-4 [&>div]:min-w-0">
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-muted-foreground">Customer Company</p>
+                  <p class="font-medium">{{ selectedRequest.companyName }}</p>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-muted-foreground">Zip Code</p>
+                  <p class="font-medium">{{ getCustomerMeta(selectedRequest).zipCode }}</p>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-muted-foreground">Country</p>
+                  <p class="font-medium">{{ getCustomerMeta(selectedRequest).country }}</p>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-muted-foreground">Contact Name</p>
+                  <p class="font-medium">{{ getCustomerMeta(selectedRequest).contactName }}</p>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-muted-foreground">City</p>
+                  <p class="font-medium">{{ getCustomerMeta(selectedRequest).city }}</p>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-muted-foreground">Contact Email</p>
+                  <p class="break-all font-medium">{{ getCustomerMeta(selectedRequest).contactEmail }}</p>
+                </div>
+                <div class="col-span-2">
+                  <p class="text-xs uppercase tracking-wide text-muted-foreground">Address</p>
+                  <p class="break-words font-medium">{{ getCustomerMeta(selectedRequest).address }}</p>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-muted-foreground">Contact Phone</p>
+                  <p class="font-medium">{{ getCustomerMeta(selectedRequest).contactPhone }}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-y-2">
+            <h3 class="text-lg font-semibold leading-none">History</h3>
+            <div class="space-y-3 rounded-lg border border-border/60 p-4">
+              <div
+                v-for="(item, index) in selectedTimeline"
+                :key="item.time + item.label"
+                class="flex gap-3 text-sm"
+              >
+                <div class="flex flex-col items-center">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-primary/80" />
+                  <span v-if="index < selectedTimeline.length - 1" class="h-8 w-px bg-border" />
+                </div>
+                <div>
+                  <p class="font-medium">{{ item.label }}</p>
+                  <p class="text-xs text-muted-foreground">{{ item.time }} · By {{ item.actor }}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="mt-auto flex items-center justify-end gap-2 border-t border-border/60 pt-4 pb-[calc(env(safe-area-inset-bottom)+0.5rem)]">
+          <Button variant="outline" @click="detailOpen = false">Close</Button>
+          <Button @click="onEdit(selectedRequest)">Edit</Button>
+        </div>
+      </div>
+      <div v-else class="p-2 text-sm text-muted-foreground">Request not found.</div>
+    </Sheet>
   </main>
 </template>
 
@@ -128,20 +303,26 @@ import {
   type SortingState,
   useVueTable,
 } from '@tanstack/vue-table'
-import { Plus, SlidersHorizontal } from 'lucide-vue-next'
+import { CircleCheckBig, ListChecks, LoaderCircle, Plus, SlidersHorizontal } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import FilterSheet from '@/components/list/FilterSheet.vue'
 import ListCard from '@/components/list/ListCard.vue'
 import PageHeader from '@/components/list/PageHeader.vue'
 import { createLocalRequestColumns, type LocalRequestTableRow } from '@/components/requests/columns'
+import Badge from '@/components/ui/Badge.vue'
 import DataTable from '@/components/inventory/DataTable.vue'
 import DataTablePagination from '@/components/inventory/DataTablePagination.vue'
 import DataTableToolbar from '@/components/inventory/DataTableToolbar.vue'
 import Button from '@/components/ui/Button.vue'
+import Card from '@/components/ui/Card.vue'
+import CardContent from '@/components/ui/CardContent.vue'
+import CardHeader from '@/components/ui/CardHeader.vue'
 import Input from '@/components/ui/Input.vue'
 import Select from '@/components/ui/Select.vue'
 import Separator from '@/components/ui/Separator.vue'
+import Sheet from '@/components/ui/Sheet.vue'
 import { getAdminPageConfig } from '@/config/pages'
+import { getRequestStatusBadgeClass } from '@/lib/requestBadges'
 import { valueUpdater } from '@/lib/utils'
 import { localRequestsMock } from '@/mock/requests'
 
@@ -173,6 +354,8 @@ const density = ref<Density>(loadDensity())
 const wrapText = ref(false)
 const showRowNumbers = ref(true)
 const filtersOpen = ref(false)
+const detailOpen = ref(false)
+const selectedRequest = ref<LocalRequestTableRow | null>(null)
 
 const rowSelection = ref({})
 const columnVisibility = ref<Record<string, boolean>>({})
@@ -248,12 +431,79 @@ const appliedFiltersCount = computed(() => {
   return count
 })
 
+const requestSummary = computed(() => ({
+  total: filteredRows.value.length,
+  inProgress: filteredRows.value.filter((row) => row.status === 'in-progress').length,
+  approved: filteredRows.value.filter((row) => row.status === 'approved').length,
+}))
+
 const onView = (row: LocalRequestTableRow) => {
-  router.push(`/requests/local/${row.id}`)
+  selectedRequest.value = row
+  detailOpen.value = true
 }
 
 const onEdit = (row: LocalRequestTableRow) => {
   router.push(`/requests/local/${row.id}/edit`)
+}
+
+const selectedTimeline = computed(() => (selectedRequest.value ? buildTimeline(selectedRequest.value) : []))
+
+const getRequestTypeBadgeClass = (requestType: LocalRequestTableRow['requestType']) => {
+  if (requestType === 'Tagging') return 'border bg-violet-50 text-violet-700 border-violet-200/70'
+  if (requestType === 'Transfer') return 'border bg-blue-50 text-blue-700 border-blue-200/70'
+  if (requestType === 'Retagging') return 'border bg-indigo-50 text-indigo-700 border-indigo-200/70'
+  return 'border bg-amber-50 text-amber-700 border-amber-200/70'
+}
+
+const formatStatus = (status: string) => {
+  return status
+    .split('-')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
+}
+
+const buildTimeline = (row: LocalRequestTableRow) => {
+  return [
+    { label: 'Packing list generated', time: `${row.createdDate} 19:21`, actor: 'apk' },
+    { label: 'Invoice uploaded', time: `${row.requestDate} 18:30`, actor: 'apk' },
+    { label: `Request processed`, time: `${row.requestDate} 17:05`, actor: 'kamal' },
+  ]
+}
+
+const getRequestNote = (row: LocalRequestTableRow) => {
+  if (row.serviceLevel === 'Express') return 'Urgent shipment - fast lane processing.'
+  if (row.serviceLevel === 'Priority') return 'Priority shipment - handle with care.'
+  return 'Standard shipment - follow regular flow.'
+}
+
+const getUnitMeta = (row: LocalRequestTableRow) => {
+  return {
+    header: `1. PAN-PA-M-${String(row.id).padStart(3, '0')} (SN${String(9000 + row.id)})`,
+    category: row.requestType === 'Transfer' ? 'Transfer' : 'Accessories',
+    accessory: row.requestType === 'Reprint' ? 'Reprint Label' : 'Power Cord',
+    rfidLabel: `RFID-${String(100 + row.id)}`,
+  }
+}
+
+const getCustomerMeta = (row: LocalRequestTableRow) => {
+  const byWarehouse: Record<string, { zipCode: string; country: string; city: string; contactName: string; contactPhone: string }> = {
+    'Warehouse A': { zipCode: '08589', country: 'South Korea', city: 'Seoul', contactName: 'Chaeun Seong', contactPhone: '+82-1062815221' },
+    'Warehouse B': { zipCode: '30115', country: 'Indonesia', city: 'Jakarta', contactName: 'Rizal Mahendra', contactPhone: '+62-81122334455' },
+    'Warehouse C': { zipCode: '70221', country: 'Singapore', city: 'Singapore', contactName: 'Nadia Putri', contactPhone: '+65-99887766' },
+    'Dock 1': { zipCode: '45301', country: 'Japan', city: 'Osaka', contactName: 'Ayu Pratama', contactPhone: '+81-9087654321' },
+    'Dock 2': { zipCode: '40012', country: 'Taiwan', city: 'Taipei', contactName: 'Kevin Hsi', contactPhone: '+886-912345678' },
+    'Staging Area': { zipCode: '50210', country: 'Malaysia', city: 'Kuala Lumpur', contactName: 'Farhan Setiawan', contactPhone: '+60-123456789' },
+    'Packing Zone': { zipCode: '11510', country: 'Thailand', city: 'Bangkok', contactName: 'Dina Salsabila', contactPhone: '+66-81234567' },
+  }
+
+  const fallback = { zipCode: '00000', country: '-', city: '-', contactName: '-', contactPhone: '-' }
+  const detail = byWarehouse[row.warehouse] ?? fallback
+
+  return {
+    ...detail,
+    contactEmail: `logistics@${row.companyName.toLowerCase().replace(/[^a-z0-9]+/g, '')}.com`,
+    address: `1101-ho 11F Smartgate, 70 Gasan digital 2-ro, ${detail.city}`,
+  }
 }
 
 const columns = computed<ColumnDef<LocalRequestTableRow>[]>(() => createLocalRequestColumns({ onView, onEdit }))

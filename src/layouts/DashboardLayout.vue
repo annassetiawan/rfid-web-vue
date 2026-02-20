@@ -92,8 +92,10 @@
           </div>
         </header>
 
-        <main class="mx-auto w-full max-w-6xl flex-1 overflow-auto px-4 py-6 sm:px-6 lg:px-8">
-          <RouterView />
+        <main class="flex-1 overflow-y-auto overflow-x-hidden">
+          <div class="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+            <RouterView />
+          </div>
         </main>
       </div>
     </div>

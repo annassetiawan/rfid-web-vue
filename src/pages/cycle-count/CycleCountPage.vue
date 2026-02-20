@@ -82,7 +82,6 @@
         :table="table"
         :density="density"
         :wrap-text="wrapText"
-        table-class="min-w-[980px]"
         empty-title="No cycle count sessions found"
         empty-description="Try adjusting filters."
       />

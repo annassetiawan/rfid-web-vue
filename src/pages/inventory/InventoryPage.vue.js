@@ -1,5 +1,6 @@
 import { computed, ref } from 'vue';
 import { getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useVueTable, } from '@tanstack/vue-table';
+import { AlertTriangle, Boxes, CircleCheckBig, Truck } from 'lucide-vue-next';
 import DataTable from '@/components/inventory/DataTable.vue';
 import DataTablePagination from '@/components/inventory/DataTablePagination.vue';
 import DataTableToolbar from '@/components/inventory/DataTableToolbar.vue';
@@ -265,148 +266,142 @@ __VLS_20.slots.default;
 /** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
 // @ts-ignore
 const __VLS_21 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
-    ...{ class: "space-y-1 pb-2" },
+    ...{ class: "pb-2" },
 }));
 const __VLS_22 = __VLS_21({
-    ...{ class: "space-y-1 pb-2" },
+    ...{ class: "pb-2" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_21));
 __VLS_23.slots.default;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex items-start justify-between gap-3" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({});
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
     ...{ class: "text-sm text-muted-foreground" },
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
-    ...{ class: "text-3xl font-semibold leading-none" },
+    ...{ class: "text-4xl font-semibold leading-none" },
 });
 (__VLS_ctx.kpis.totalItems);
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40" },
+});
+const __VLS_24 = {}.Boxes;
+/** @type {[typeof __VLS_components.Boxes, ]} */ ;
+// @ts-ignore
+const __VLS_25 = __VLS_asFunctionalComponent(__VLS_24, new __VLS_24({
+    ...{ class: "h-4 w-4 text-muted-foreground" },
+}));
+const __VLS_26 = __VLS_25({
+    ...{ class: "h-4 w-4 text-muted-foreground" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_25));
 var __VLS_23;
 /** @type {[typeof CardContent, typeof CardContent, ]} */ ;
 // @ts-ignore
-const __VLS_24 = __VLS_asFunctionalComponent(CardContent, new CardContent({
+const __VLS_28 = __VLS_asFunctionalComponent(CardContent, new CardContent({
     ...{ class: "pt-0 text-sm text-muted-foreground" },
 }));
-const __VLS_25 = __VLS_24({
+const __VLS_29 = __VLS_28({
     ...{ class: "pt-0 text-sm text-muted-foreground" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_24));
-__VLS_26.slots.default;
-var __VLS_26;
+}, ...__VLS_functionalComponentArgsRest(__VLS_28));
+__VLS_30.slots.default;
+var __VLS_30;
 var __VLS_20;
 /** @type {[typeof Card, typeof Card, ]} */ ;
 // @ts-ignore
-const __VLS_27 = __VLS_asFunctionalComponent(Card, new Card({
+const __VLS_31 = __VLS_asFunctionalComponent(Card, new Card({
     ...{ class: "rounded-lg" },
 }));
-const __VLS_28 = __VLS_27({
+const __VLS_32 = __VLS_31({
     ...{ class: "rounded-lg" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_27));
-__VLS_29.slots.default;
+}, ...__VLS_functionalComponentArgsRest(__VLS_31));
+__VLS_33.slots.default;
 /** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
 // @ts-ignore
-const __VLS_30 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
-    ...{ class: "space-y-1 pb-2" },
+const __VLS_34 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
+    ...{ class: "pb-2" },
 }));
-const __VLS_31 = __VLS_30({
-    ...{ class: "space-y-1 pb-2" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_30));
-__VLS_32.slots.default;
+const __VLS_35 = __VLS_34({
+    ...{ class: "pb-2" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_34));
+__VLS_36.slots.default;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex items-start justify-between gap-3" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({});
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
     ...{ class: "text-sm text-muted-foreground" },
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
-    ...{ class: "text-3xl font-semibold leading-none" },
+    ...{ class: "text-4xl font-semibold leading-none" },
 });
 (__VLS_ctx.kpis.availableCount);
-var __VLS_32;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40" },
+});
+const __VLS_37 = {}.CircleCheckBig;
+/** @type {[typeof __VLS_components.CircleCheckBig, ]} */ ;
+// @ts-ignore
+const __VLS_38 = __VLS_asFunctionalComponent(__VLS_37, new __VLS_37({
+    ...{ class: "h-4 w-4 text-muted-foreground" },
+}));
+const __VLS_39 = __VLS_38({
+    ...{ class: "h-4 w-4 text-muted-foreground" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_38));
+var __VLS_36;
 /** @type {[typeof CardContent, typeof CardContent, ]} */ ;
 // @ts-ignore
-const __VLS_33 = __VLS_asFunctionalComponent(CardContent, new CardContent({
+const __VLS_41 = __VLS_asFunctionalComponent(CardContent, new CardContent({
     ...{ class: "pt-0 text-sm text-muted-foreground" },
 }));
-const __VLS_34 = __VLS_33({
+const __VLS_42 = __VLS_41({
     ...{ class: "pt-0 text-sm text-muted-foreground" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_33));
-__VLS_35.slots.default;
-var __VLS_35;
-var __VLS_29;
+}, ...__VLS_functionalComponentArgsRest(__VLS_41));
+__VLS_43.slots.default;
+var __VLS_43;
+var __VLS_33;
 /** @type {[typeof Card, typeof Card, ]} */ ;
 // @ts-ignore
-const __VLS_36 = __VLS_asFunctionalComponent(Card, new Card({
+const __VLS_44 = __VLS_asFunctionalComponent(Card, new Card({
     ...{ class: "rounded-lg" },
 }));
-const __VLS_37 = __VLS_36({
+const __VLS_45 = __VLS_44({
     ...{ class: "rounded-lg" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_36));
-__VLS_38.slots.default;
+}, ...__VLS_functionalComponentArgsRest(__VLS_44));
+__VLS_46.slots.default;
 /** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
 // @ts-ignore
-const __VLS_39 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
-    ...{ class: "space-y-1 pb-2" },
+const __VLS_47 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
+    ...{ class: "pb-2" },
 }));
-const __VLS_40 = __VLS_39({
-    ...{ class: "space-y-1 pb-2" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_39));
-__VLS_41.slots.default;
+const __VLS_48 = __VLS_47({
+    ...{ class: "pb-2" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_47));
+__VLS_49.slots.default;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex items-start justify-between gap-3" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({});
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
     ...{ class: "text-sm text-muted-foreground" },
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
-    ...{ class: "text-3xl font-semibold leading-none" },
+    ...{ class: "text-4xl font-semibold leading-none" },
 });
 (__VLS_ctx.kpis.inTransitCount);
-var __VLS_41;
-/** @type {[typeof CardContent, typeof CardContent, ]} */ ;
-// @ts-ignore
-const __VLS_42 = __VLS_asFunctionalComponent(CardContent, new CardContent({
-    ...{ class: "pt-0 text-sm text-muted-foreground" },
-}));
-const __VLS_43 = __VLS_42({
-    ...{ class: "pt-0 text-sm text-muted-foreground" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_42));
-__VLS_44.slots.default;
-var __VLS_44;
-var __VLS_38;
-/** @type {[typeof Card, typeof Card, ]} */ ;
-// @ts-ignore
-const __VLS_45 = __VLS_asFunctionalComponent(Card, new Card({
-    ...{ class: (['rounded-lg', __VLS_ctx.kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/5' : '']) },
-}));
-const __VLS_46 = __VLS_45({
-    ...{ class: (['rounded-lg', __VLS_ctx.kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/5' : '']) },
-}, ...__VLS_functionalComponentArgsRest(__VLS_45));
-__VLS_47.slots.default;
-/** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
-// @ts-ignore
-const __VLS_48 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
-    ...{ class: "space-y-1 pb-2" },
-}));
-const __VLS_49 = __VLS_48({
-    ...{ class: "space-y-1 pb-2" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_48));
-__VLS_50.slots.default;
 __VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
-    ...{ class: "flex items-center justify-between gap-2" },
+    ...{ class: "flex h-9 w-9 items-center justify-center rounded-md border bg-muted/40" },
 });
-__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
-    ...{ class: "text-sm text-muted-foreground" },
-});
-if (__VLS_ctx.kpis.issuesCount > 0) {
-    /** @type {[typeof Badge, typeof Badge, ]} */ ;
-    // @ts-ignore
-    const __VLS_51 = __VLS_asFunctionalComponent(Badge, new Badge({
-        variant: "outline",
-        ...{ class: "border-destructive/40 text-destructive" },
-    }));
-    const __VLS_52 = __VLS_51({
-        variant: "outline",
-        ...{ class: "border-destructive/40 text-destructive" },
-    }, ...__VLS_functionalComponentArgsRest(__VLS_51));
-    __VLS_53.slots.default;
-    var __VLS_53;
-}
-__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
-    ...{ class: "text-3xl font-semibold leading-none" },
-});
-(__VLS_ctx.kpis.issuesCount);
-var __VLS_50;
+const __VLS_50 = {}.Truck;
+/** @type {[typeof __VLS_components.Truck, ]} */ ;
+// @ts-ignore
+const __VLS_51 = __VLS_asFunctionalComponent(__VLS_50, new __VLS_50({
+    ...{ class: "h-4 w-4 text-muted-foreground" },
+}));
+const __VLS_52 = __VLS_51({
+    ...{ class: "h-4 w-4 text-muted-foreground" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_51));
+var __VLS_49;
 /** @type {[typeof CardContent, typeof CardContent, ]} */ ;
 // @ts-ignore
 const __VLS_54 = __VLS_asFunctionalComponent(CardContent, new CardContent({
@@ -417,122 +412,105 @@ const __VLS_55 = __VLS_54({
 }, ...__VLS_functionalComponentArgsRest(__VLS_54));
 __VLS_56.slots.default;
 var __VLS_56;
-var __VLS_47;
-/** @type {[typeof TabsContent, typeof TabsContent, ]} */ ;
+var __VLS_46;
+/** @type {[typeof Card, typeof Card, ]} */ ;
 // @ts-ignore
-const __VLS_57 = __VLS_asFunctionalComponent(TabsContent, new TabsContent({
-    value: "products",
+const __VLS_57 = __VLS_asFunctionalComponent(Card, new Card({
+    ...{ class: (['rounded-lg', __VLS_ctx.kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/5' : '']) },
 }));
 const __VLS_58 = __VLS_57({
-    value: "products",
+    ...{ class: (['rounded-lg', __VLS_ctx.kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/5' : '']) },
 }, ...__VLS_functionalComponentArgsRest(__VLS_57));
 __VLS_59.slots.default;
-/** @type {[typeof ListCard, typeof ListCard, ]} */ ;
+/** @type {[typeof CardHeader, typeof CardHeader, ]} */ ;
 // @ts-ignore
-const __VLS_60 = __VLS_asFunctionalComponent(ListCard, new ListCard({
-    title: "Products",
-    description: "Monitor RFID-tagged products across warehouse locations, status, and lifecycle stages.",
-    compact: true,
+const __VLS_60 = __VLS_asFunctionalComponent(CardHeader, new CardHeader({
+    ...{ class: "pb-2" },
 }));
 const __VLS_61 = __VLS_60({
-    title: "Products",
-    description: "Monitor RFID-tagged products across warehouse locations, status, and lifecycle stages.",
-    compact: true,
+    ...{ class: "pb-2" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_60));
 __VLS_62.slots.default;
-/** @type {[typeof DataTableToolbar, ]} */ ;
-// @ts-ignore
-const __VLS_63 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableToolbar({
-    ...{ 'onOpenFilters': {} },
-    ...{ 'onUpdate:density': {} },
-    ...{ 'onExportCsv': {} },
-    ...{ 'onExportExcel': {} },
-    table: (__VLS_ctx.table),
-    density: (__VLS_ctx.density),
-    appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
-}));
-const __VLS_64 = __VLS_63({
-    ...{ 'onOpenFilters': {} },
-    ...{ 'onUpdate:density': {} },
-    ...{ 'onExportCsv': {} },
-    ...{ 'onExportExcel': {} },
-    table: (__VLS_ctx.table),
-    density: (__VLS_ctx.density),
-    appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
-}, ...__VLS_functionalComponentArgsRest(__VLS_63));
-let __VLS_66;
-let __VLS_67;
-let __VLS_68;
-const __VLS_69 = {
-    onOpenFilters: (...[$event]) => {
-        __VLS_ctx.filtersOpen = true;
-    }
-};
-const __VLS_70 = {
-    'onUpdate:density': (...[$event]) => {
-        __VLS_ctx.density = $event;
-    }
-};
-const __VLS_71 = {
-    onExportCsv: (__VLS_ctx.onExportCsv)
-};
-const __VLS_72 = {
-    onExportExcel: (__VLS_ctx.onExportExcel)
-};
-var __VLS_65;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex items-start justify-between gap-3" },
+});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({});
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex items-center gap-2" },
+});
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
     ...{ class: "text-sm text-muted-foreground" },
 });
-(__VLS_ctx.table.getFilteredRowModel().rows.length);
-/** @type {[typeof DataTable, ]} */ ;
+if (__VLS_ctx.kpis.issuesCount > 0) {
+    /** @type {[typeof Badge, typeof Badge, ]} */ ;
+    // @ts-ignore
+    const __VLS_63 = __VLS_asFunctionalComponent(Badge, new Badge({
+        variant: "outline",
+        ...{ class: "h-5 shrink-0 whitespace-nowrap rounded-full border-destructive/40 bg-destructive/10 px-2 text-[10px] font-medium leading-none text-destructive" },
+    }));
+    const __VLS_64 = __VLS_63({
+        variant: "outline",
+        ...{ class: "h-5 shrink-0 whitespace-nowrap rounded-full border-destructive/40 bg-destructive/10 px-2 text-[10px] font-medium leading-none text-destructive" },
+    }, ...__VLS_functionalComponentArgsRest(__VLS_63));
+    __VLS_65.slots.default;
+    var __VLS_65;
+}
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-4xl font-semibold leading-none" },
+});
+(__VLS_ctx.kpis.issuesCount);
+__VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
+    ...{ class: "flex h-9 w-9 items-center justify-center rounded-md border" },
+    ...{ class: (__VLS_ctx.kpis.issuesCount > 0 ? 'border-destructive/30 bg-destructive/10' : 'bg-muted/40') },
+});
+const __VLS_66 = {}.AlertTriangle;
+/** @type {[typeof __VLS_components.AlertTriangle, ]} */ ;
 // @ts-ignore
-const __VLS_73 = __VLS_asFunctionalComponent(DataTable, new DataTable({
-    table: (__VLS_ctx.table),
-    density: (__VLS_ctx.density),
+const __VLS_67 = __VLS_asFunctionalComponent(__VLS_66, new __VLS_66({
+    ...{ class: "h-4 w-4" },
+    ...{ class: (__VLS_ctx.kpis.issuesCount > 0 ? 'text-destructive' : 'text-muted-foreground') },
 }));
-const __VLS_74 = __VLS_73({
-    table: (__VLS_ctx.table),
-    density: (__VLS_ctx.density),
-}, ...__VLS_functionalComponentArgsRest(__VLS_73));
-/** @type {[typeof DataTablePagination, ]} */ ;
-// @ts-ignore
-const __VLS_76 = __VLS_asFunctionalComponent(DataTablePagination, new DataTablePagination({
-    table: (__VLS_ctx.table),
-    density: (__VLS_ctx.density),
-    totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
-}));
-const __VLS_77 = __VLS_76({
-    table: (__VLS_ctx.table),
-    density: (__VLS_ctx.density),
-    totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
-}, ...__VLS_functionalComponentArgsRest(__VLS_76));
+const __VLS_68 = __VLS_67({
+    ...{ class: "h-4 w-4" },
+    ...{ class: (__VLS_ctx.kpis.issuesCount > 0 ? 'text-destructive' : 'text-muted-foreground') },
+}, ...__VLS_functionalComponentArgsRest(__VLS_67));
 var __VLS_62;
+/** @type {[typeof CardContent, typeof CardContent, ]} */ ;
+// @ts-ignore
+const __VLS_70 = __VLS_asFunctionalComponent(CardContent, new CardContent({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}));
+const __VLS_71 = __VLS_70({
+    ...{ class: "pt-0 text-sm text-muted-foreground" },
+}, ...__VLS_functionalComponentArgsRest(__VLS_70));
+__VLS_72.slots.default;
+var __VLS_72;
 var __VLS_59;
 /** @type {[typeof TabsContent, typeof TabsContent, ]} */ ;
 // @ts-ignore
-const __VLS_79 = __VLS_asFunctionalComponent(TabsContent, new TabsContent({
-    value: "accessories",
+const __VLS_73 = __VLS_asFunctionalComponent(TabsContent, new TabsContent({
+    value: "products",
 }));
-const __VLS_80 = __VLS_79({
-    value: "accessories",
-}, ...__VLS_functionalComponentArgsRest(__VLS_79));
-__VLS_81.slots.default;
+const __VLS_74 = __VLS_73({
+    value: "products",
+}, ...__VLS_functionalComponentArgsRest(__VLS_73));
+__VLS_75.slots.default;
 /** @type {[typeof ListCard, typeof ListCard, ]} */ ;
 // @ts-ignore
-const __VLS_82 = __VLS_asFunctionalComponent(ListCard, new ListCard({
-    title: "Accessories",
-    description: "Track accessory items, availability, and movement details with the same operational controls.",
+const __VLS_76 = __VLS_asFunctionalComponent(ListCard, new ListCard({
+    title: "Products",
+    description: "Monitor RFID-tagged products across warehouse locations, status, and lifecycle stages.",
     compact: true,
 }));
-const __VLS_83 = __VLS_82({
-    title: "Accessories",
-    description: "Track accessory items, availability, and movement details with the same operational controls.",
+const __VLS_77 = __VLS_76({
+    title: "Products",
+    description: "Monitor RFID-tagged products across warehouse locations, status, and lifecycle stages.",
     compact: true,
-}, ...__VLS_functionalComponentArgsRest(__VLS_82));
-__VLS_84.slots.default;
+}, ...__VLS_functionalComponentArgsRest(__VLS_76));
+__VLS_78.slots.default;
 /** @type {[typeof DataTableToolbar, ]} */ ;
 // @ts-ignore
-const __VLS_85 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableToolbar({
+const __VLS_79 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableToolbar({
     ...{ 'onOpenFilters': {} },
     ...{ 'onUpdate:density': {} },
     ...{ 'onExportCsv': {} },
@@ -541,7 +519,7 @@ const __VLS_85 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableTool
     density: (__VLS_ctx.density),
     appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
 }));
-const __VLS_86 = __VLS_85({
+const __VLS_80 = __VLS_79({
     ...{ 'onOpenFilters': {} },
     ...{ 'onUpdate:density': {} },
     ...{ 'onExportCsv': {} },
@@ -549,82 +527,172 @@ const __VLS_86 = __VLS_85({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
-}, ...__VLS_functionalComponentArgsRest(__VLS_85));
-let __VLS_88;
-let __VLS_89;
-let __VLS_90;
-const __VLS_91 = {
+}, ...__VLS_functionalComponentArgsRest(__VLS_79));
+let __VLS_82;
+let __VLS_83;
+let __VLS_84;
+const __VLS_85 = {
     onOpenFilters: (...[$event]) => {
         __VLS_ctx.filtersOpen = true;
     }
 };
-const __VLS_92 = {
+const __VLS_86 = {
     'onUpdate:density': (...[$event]) => {
         __VLS_ctx.density = $event;
     }
 };
-const __VLS_93 = {
+const __VLS_87 = {
     onExportCsv: (__VLS_ctx.onExportCsv)
 };
-const __VLS_94 = {
+const __VLS_88 = {
     onExportExcel: (__VLS_ctx.onExportExcel)
 };
-var __VLS_87;
+var __VLS_81;
 __VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
     ...{ class: "text-sm text-muted-foreground" },
 });
 (__VLS_ctx.table.getFilteredRowModel().rows.length);
 /** @type {[typeof DataTable, ]} */ ;
 // @ts-ignore
-const __VLS_95 = __VLS_asFunctionalComponent(DataTable, new DataTable({
+const __VLS_89 = __VLS_asFunctionalComponent(DataTable, new DataTable({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
 }));
-const __VLS_96 = __VLS_95({
+const __VLS_90 = __VLS_89({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
-}, ...__VLS_functionalComponentArgsRest(__VLS_95));
+}, ...__VLS_functionalComponentArgsRest(__VLS_89));
 /** @type {[typeof DataTablePagination, ]} */ ;
 // @ts-ignore
-const __VLS_98 = __VLS_asFunctionalComponent(DataTablePagination, new DataTablePagination({
+const __VLS_92 = __VLS_asFunctionalComponent(DataTablePagination, new DataTablePagination({
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
     totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
+}));
+const __VLS_93 = __VLS_92({
+    table: (__VLS_ctx.table),
+    density: (__VLS_ctx.density),
+    totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
+}, ...__VLS_functionalComponentArgsRest(__VLS_92));
+var __VLS_78;
+var __VLS_75;
+/** @type {[typeof TabsContent, typeof TabsContent, ]} */ ;
+// @ts-ignore
+const __VLS_95 = __VLS_asFunctionalComponent(TabsContent, new TabsContent({
+    value: "accessories",
+}));
+const __VLS_96 = __VLS_95({
+    value: "accessories",
+}, ...__VLS_functionalComponentArgsRest(__VLS_95));
+__VLS_97.slots.default;
+/** @type {[typeof ListCard, typeof ListCard, ]} */ ;
+// @ts-ignore
+const __VLS_98 = __VLS_asFunctionalComponent(ListCard, new ListCard({
+    title: "Accessories",
+    description: "Track accessory items, availability, and movement details with the same operational controls.",
+    compact: true,
 }));
 const __VLS_99 = __VLS_98({
+    title: "Accessories",
+    description: "Track accessory items, availability, and movement details with the same operational controls.",
+    compact: true,
+}, ...__VLS_functionalComponentArgsRest(__VLS_98));
+__VLS_100.slots.default;
+/** @type {[typeof DataTableToolbar, ]} */ ;
+// @ts-ignore
+const __VLS_101 = __VLS_asFunctionalComponent(DataTableToolbar, new DataTableToolbar({
+    ...{ 'onOpenFilters': {} },
+    ...{ 'onUpdate:density': {} },
+    ...{ 'onExportCsv': {} },
+    ...{ 'onExportExcel': {} },
     table: (__VLS_ctx.table),
     density: (__VLS_ctx.density),
-    totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
-}, ...__VLS_functionalComponentArgsRest(__VLS_98));
-var __VLS_84;
-var __VLS_81;
-var __VLS_8;
-/** @type {[typeof InventoryFiltersSheet, ]} */ ;
-// @ts-ignore
-const __VLS_101 = __VLS_asFunctionalComponent(InventoryFiltersSheet, new InventoryFiltersSheet({
-    ...{ 'onApply': {} },
-    ...{ 'onClear': {} },
-    modelValue: (__VLS_ctx.filtersOpen),
-    filters: (__VLS_ctx.filters),
-    options: (__VLS_ctx.filterOptions),
+    appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
 }));
 const __VLS_102 = __VLS_101({
-    ...{ 'onApply': {} },
-    ...{ 'onClear': {} },
-    modelValue: (__VLS_ctx.filtersOpen),
-    filters: (__VLS_ctx.filters),
-    options: (__VLS_ctx.filterOptions),
+    ...{ 'onOpenFilters': {} },
+    ...{ 'onUpdate:density': {} },
+    ...{ 'onExportCsv': {} },
+    ...{ 'onExportExcel': {} },
+    table: (__VLS_ctx.table),
+    density: (__VLS_ctx.density),
+    appliedFiltersCount: (__VLS_ctx.appliedFiltersCount),
 }, ...__VLS_functionalComponentArgsRest(__VLS_101));
 let __VLS_104;
 let __VLS_105;
 let __VLS_106;
 const __VLS_107 = {
-    onApply: (__VLS_ctx.applyFilters)
+    onOpenFilters: (...[$event]) => {
+        __VLS_ctx.filtersOpen = true;
+    }
 };
 const __VLS_108 = {
-    onClear: (__VLS_ctx.clearFilters)
+    'onUpdate:density': (...[$event]) => {
+        __VLS_ctx.density = $event;
+    }
+};
+const __VLS_109 = {
+    onExportCsv: (__VLS_ctx.onExportCsv)
+};
+const __VLS_110 = {
+    onExportExcel: (__VLS_ctx.onExportExcel)
 };
 var __VLS_103;
+__VLS_asFunctionalElement(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({
+    ...{ class: "text-sm text-muted-foreground" },
+});
+(__VLS_ctx.table.getFilteredRowModel().rows.length);
+/** @type {[typeof DataTable, ]} */ ;
+// @ts-ignore
+const __VLS_111 = __VLS_asFunctionalComponent(DataTable, new DataTable({
+    table: (__VLS_ctx.table),
+    density: (__VLS_ctx.density),
+}));
+const __VLS_112 = __VLS_111({
+    table: (__VLS_ctx.table),
+    density: (__VLS_ctx.density),
+}, ...__VLS_functionalComponentArgsRest(__VLS_111));
+/** @type {[typeof DataTablePagination, ]} */ ;
+// @ts-ignore
+const __VLS_114 = __VLS_asFunctionalComponent(DataTablePagination, new DataTablePagination({
+    table: (__VLS_ctx.table),
+    density: (__VLS_ctx.density),
+    totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
+}));
+const __VLS_115 = __VLS_114({
+    table: (__VLS_ctx.table),
+    density: (__VLS_ctx.density),
+    totalRows: (__VLS_ctx.table.getFilteredRowModel().rows.length),
+}, ...__VLS_functionalComponentArgsRest(__VLS_114));
+var __VLS_100;
+var __VLS_97;
+var __VLS_8;
+/** @type {[typeof InventoryFiltersSheet, ]} */ ;
+// @ts-ignore
+const __VLS_117 = __VLS_asFunctionalComponent(InventoryFiltersSheet, new InventoryFiltersSheet({
+    ...{ 'onApply': {} },
+    ...{ 'onClear': {} },
+    modelValue: (__VLS_ctx.filtersOpen),
+    filters: (__VLS_ctx.filters),
+    options: (__VLS_ctx.filterOptions),
+}));
+const __VLS_118 = __VLS_117({
+    ...{ 'onApply': {} },
+    ...{ 'onClear': {} },
+    modelValue: (__VLS_ctx.filtersOpen),
+    filters: (__VLS_ctx.filters),
+    options: (__VLS_ctx.filterOptions),
+}, ...__VLS_functionalComponentArgsRest(__VLS_117));
+let __VLS_120;
+let __VLS_121;
+let __VLS_122;
+const __VLS_123 = {
+    onApply: (__VLS_ctx.applyFilters)
+};
+const __VLS_124 = {
+    onClear: (__VLS_ctx.clearFilters)
+};
+var __VLS_119;
 /** @type {__VLS_StyleScopedClasses['container']} */ ;
 /** @type {__VLS_StyleScopedClasses['max-w-6xl']} */ ;
 /** @type {__VLS_StyleScopedClasses['py-6']} */ ;
@@ -641,52 +709,114 @@ var __VLS_103;
 /** @type {__VLS_StyleScopedClasses['sm:grid-cols-2']} */ ;
 /** @type {__VLS_StyleScopedClasses['xl:grid-cols-4']} */ ;
 /** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
-/** @type {__VLS_StyleScopedClasses['space-y-1']} */ ;
-/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-3xl']} */ ;
-/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
-/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
-/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
-/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
-/** @type {__VLS_StyleScopedClasses['space-y-1']} */ ;
-/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-3xl']} */ ;
-/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
-/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
-/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
-/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
-/** @type {__VLS_StyleScopedClasses['space-y-1']} */ ;
-/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-3xl']} */ ;
-/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
-/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
-/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
-/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
-/** @type {__VLS_StyleScopedClasses['space-y-1']} */ ;
 /** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
 /** @type {__VLS_StyleScopedClasses['flex']} */ ;
-/** @type {__VLS_StyleScopedClasses['items-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-start']} */ ;
 /** @type {__VLS_StyleScopedClasses['justify-between']} */ ;
+/** @type {__VLS_StyleScopedClasses['gap-3']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-4xl']} */ ;
+/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
+/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-9']} */ ;
+/** @type {__VLS_StyleScopedClasses['w-9']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['justify-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-md']} */ ;
+/** @type {__VLS_StyleScopedClasses['border']} */ ;
+/** @type {__VLS_StyleScopedClasses['bg-muted/40']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['w-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
+/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-start']} */ ;
+/** @type {__VLS_StyleScopedClasses['justify-between']} */ ;
+/** @type {__VLS_StyleScopedClasses['gap-3']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-4xl']} */ ;
+/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
+/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-9']} */ ;
+/** @type {__VLS_StyleScopedClasses['w-9']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['justify-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-md']} */ ;
+/** @type {__VLS_StyleScopedClasses['border']} */ ;
+/** @type {__VLS_StyleScopedClasses['bg-muted/40']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['w-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
+/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-start']} */ ;
+/** @type {__VLS_StyleScopedClasses['justify-between']} */ ;
+/** @type {__VLS_StyleScopedClasses['gap-3']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-4xl']} */ ;
+/** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
+/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-9']} */ ;
+/** @type {__VLS_StyleScopedClasses['w-9']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['justify-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-md']} */ ;
+/** @type {__VLS_StyleScopedClasses['border']} */ ;
+/** @type {__VLS_StyleScopedClasses['bg-muted/40']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['w-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-lg']} */ ;
+/** @type {__VLS_StyleScopedClasses['pb-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-start']} */ ;
+/** @type {__VLS_StyleScopedClasses['justify-between']} */ ;
+/** @type {__VLS_StyleScopedClasses['gap-3']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-center']} */ ;
 /** @type {__VLS_StyleScopedClasses['gap-2']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-5']} */ ;
+/** @type {__VLS_StyleScopedClasses['shrink-0']} */ ;
+/** @type {__VLS_StyleScopedClasses['whitespace-nowrap']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-full']} */ ;
 /** @type {__VLS_StyleScopedClasses['border-destructive/40']} */ ;
+/** @type {__VLS_StyleScopedClasses['bg-destructive/10']} */ ;
+/** @type {__VLS_StyleScopedClasses['px-2']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-[10px]']} */ ;
+/** @type {__VLS_StyleScopedClasses['font-medium']} */ ;
+/** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-destructive']} */ ;
-/** @type {__VLS_StyleScopedClasses['text-3xl']} */ ;
+/** @type {__VLS_StyleScopedClasses['text-4xl']} */ ;
 /** @type {__VLS_StyleScopedClasses['font-semibold']} */ ;
 /** @type {__VLS_StyleScopedClasses['leading-none']} */ ;
+/** @type {__VLS_StyleScopedClasses['flex']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-9']} */ ;
+/** @type {__VLS_StyleScopedClasses['w-9']} */ ;
+/** @type {__VLS_StyleScopedClasses['items-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['justify-center']} */ ;
+/** @type {__VLS_StyleScopedClasses['rounded-md']} */ ;
+/** @type {__VLS_StyleScopedClasses['border']} */ ;
+/** @type {__VLS_StyleScopedClasses['h-4']} */ ;
+/** @type {__VLS_StyleScopedClasses['w-4']} */ ;
 /** @type {__VLS_StyleScopedClasses['pt-0']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-sm']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
@@ -698,6 +828,10 @@ var __VLS_dollars;
 const __VLS_self = (await import('vue')).defineComponent({
     setup() {
         return {
+            AlertTriangle: AlertTriangle,
+            Boxes: Boxes,
+            CircleCheckBig: CircleCheckBig,
+            Truck: Truck,
             DataTable: DataTable,
             DataTablePagination: DataTablePagination,
             DataTableToolbar: DataTableToolbar,

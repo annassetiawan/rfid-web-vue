@@ -9,7 +9,7 @@ import TableRow from '@/components/ui/TableRow.vue';
 import Table from '@/components/ui/Table.vue';
 const props = withDefaults(defineProps(), {
     wrapText: false,
-    tableClass: 'max-h-[520px] overflow-auto [&_table]:table-fixed',
+    tableClass: 'w-full table-auto min-w-max',
     emptyTitle: 'No results',
     emptyDescription: 'Try adjusting filters.',
 });
@@ -36,7 +36,7 @@ const cellClass = computed(() => {
 debugger; /* PartiallyEnd: #3632/scriptSetup.vue */
 const __VLS_withDefaultsArg = (function (t) { return t; })({
     wrapText: false,
-    tableClass: 'max-h-[520px] overflow-auto [&_table]:table-fixed',
+    tableClass: 'w-full table-auto min-w-max',
     emptyTitle: 'No results',
     emptyDescription: 'Try adjusting filters.',
 });
@@ -47,7 +47,7 @@ __VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.d
     ...{ class: "rounded-lg border bg-card" },
 });
 __VLS_asFunctionalElement(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({
-    ...{ class: "overflow-x-auto overflow-y-visible" },
+    ...{ class: "overflow-x-auto overflow-y-hidden" },
 });
 /** @type {[typeof Table, typeof Table, ]} */ ;
 // @ts-ignore
@@ -84,12 +84,12 @@ for (const [headerGroup] of __VLS_getVForSourceType((__VLS_ctx.table.getHeaderGr
         // @ts-ignore
         const __VLS_9 = __VLS_asFunctionalComponent(TableHead, new TableHead({
             key: (header.id),
-            ...{ class: "h-10 px-2 font-medium text-muted-foreground whitespace-nowrap" },
+            ...{ class: "h-10 px-2 font-medium text-muted-foreground" },
             ...{ class: (__VLS_ctx.headerCellClass) },
         }));
         const __VLS_10 = __VLS_9({
             key: (header.id),
-            ...{ class: "h-10 px-2 font-medium text-muted-foreground whitespace-nowrap" },
+            ...{ class: "h-10 px-2 font-medium text-muted-foreground" },
             ...{ class: (__VLS_ctx.headerCellClass) },
         }, ...__VLS_functionalComponentArgsRest(__VLS_9));
         __VLS_11.slots.default;
@@ -136,11 +136,21 @@ if (__VLS_ctx.table.getRowModel().rows?.length) {
             // @ts-ignore
             const __VLS_22 = __VLS_asFunctionalComponent(TableCell, new TableCell({
                 key: (cell.id),
-                ...{ class: ([__VLS_ctx.cellClass, __VLS_ctx.wrapText ? 'whitespace-normal break-words' : 'whitespace-nowrap']) },
+                ...{ class: ([
+                        __VLS_ctx.cellClass,
+                        __VLS_ctx.wrapText
+                            ? 'whitespace-normal break-words'
+                            : 'whitespace-nowrap',
+                    ]) },
             }));
             const __VLS_23 = __VLS_22({
                 key: (cell.id),
-                ...{ class: ([__VLS_ctx.cellClass, __VLS_ctx.wrapText ? 'whitespace-normal break-words' : 'whitespace-nowrap']) },
+                ...{ class: ([
+                        __VLS_ctx.cellClass,
+                        __VLS_ctx.wrapText
+                            ? 'whitespace-normal break-words'
+                            : 'whitespace-nowrap',
+                    ]) },
             }, ...__VLS_functionalComponentArgsRest(__VLS_22));
             __VLS_24.slots.default;
             const __VLS_25 = {}.FlexRender;
@@ -203,7 +213,7 @@ var __VLS_2;
 /** @type {__VLS_StyleScopedClasses['border']} */ ;
 /** @type {__VLS_StyleScopedClasses['bg-card']} */ ;
 /** @type {__VLS_StyleScopedClasses['overflow-x-auto']} */ ;
-/** @type {__VLS_StyleScopedClasses['overflow-y-visible']} */ ;
+/** @type {__VLS_StyleScopedClasses['overflow-y-hidden']} */ ;
 /** @type {__VLS_StyleScopedClasses['[&_tr]:border-b']} */ ;
 /** @type {__VLS_StyleScopedClasses['[&_th]:sticky']} */ ;
 /** @type {__VLS_StyleScopedClasses['[&_th]:top-0']} */ ;
@@ -213,7 +223,6 @@ var __VLS_2;
 /** @type {__VLS_StyleScopedClasses['px-2']} */ ;
 /** @type {__VLS_StyleScopedClasses['font-medium']} */ ;
 /** @type {__VLS_StyleScopedClasses['text-muted-foreground']} */ ;
-/** @type {__VLS_StyleScopedClasses['whitespace-nowrap']} */ ;
 /** @type {__VLS_StyleScopedClasses['border-b']} */ ;
 /** @type {__VLS_StyleScopedClasses['last:border-b-0']} */ ;
 /** @type {__VLS_StyleScopedClasses['hover:bg-muted/30']} */ ;

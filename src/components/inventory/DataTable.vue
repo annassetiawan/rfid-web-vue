@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-lg border bg-card">
-    <div class="overflow-x-auto overflow-y-visible">
+    <div class="overflow-x-auto overflow-y-hidden">
       <Table :class="tableClass">
       <TableHeader class="[&_tr]:border-b [&_th]:sticky [&_th]:top-0 [&_th]:z-10">
         <TableRow
@@ -11,7 +11,7 @@
             <TableHead
               v-for="header in headerGroup.headers"
               :key="header.id"
-            class="h-10 px-2 font-medium text-muted-foreground whitespace-nowrap"
+            class="h-10 px-2 font-medium text-muted-foreground"
             :class="headerCellClass"
           >
             <FlexRender
@@ -34,7 +34,12 @@
             <TableCell
               v-for="cell in row.getVisibleCells()"
               :key="cell.id"
-              :class="[cellClass, wrapText ? 'whitespace-normal break-words' : 'whitespace-nowrap']"
+              :class="[
+                cellClass,
+                wrapText
+                  ? 'whitespace-normal break-words'
+                  : 'whitespace-nowrap',
+              ]"
             >
               <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
             </TableCell>
@@ -78,7 +83,7 @@ const props = withDefaults(defineProps<{
   emptyDescription?: string
 }>(), {
   wrapText: false,
-  tableClass: 'max-h-[520px] overflow-auto [&_table]:table-fixed',
+  tableClass: 'w-full table-auto min-w-max',
   emptyTitle: 'No results',
   emptyDescription: 'Try adjusting filters.',
 })
