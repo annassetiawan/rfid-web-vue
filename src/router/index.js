@@ -30,6 +30,11 @@ const routes = [
                 component: () => import('../pages/requests/NewLocalRequestPage.vue'),
             },
             {
+                path: 'requests/local/additional',
+                name: 'requests-local-additional',
+                component: () => import('../pages/requests/AdditionalDeliveryPage.vue'),
+            },
+            {
                 path: 'requests/local/:id',
                 name: 'requests-local-detail',
                 component: () => import('../pages/requests/LocalRequestDetailPage.vue'),
@@ -68,6 +73,16 @@ const routes = [
                 path: 'cycle-count/:id',
                 name: 'cycle-count-detail',
                 component: () => import('../pages/cycle-count/CycleCountDetailPage.vue'),
+            },
+            {
+                path: 'asn',
+                name: 'asn',
+                component: () => import('../pages/asn/AsnPage.vue'),
+            },
+            {
+                path: 'asn/new',
+                name: 'asn-new',
+                component: () => import('../pages/asn/NewAsnPage.vue'),
             },
             {
                 path: 'customers',

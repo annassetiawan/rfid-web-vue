@@ -571,7 +571,7 @@ const goToNewRequest = () => {
 }
 
 const goToAdditionalDelivery = () => {
-  router.push(pageConfig.primaryAction.route)
+  router.push('/requests/local/additional')
 }
 
 const onDensityChange = (value: Density) => {

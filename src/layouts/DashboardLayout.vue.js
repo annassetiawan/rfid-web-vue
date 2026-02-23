@@ -1,6 +1,6 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router';
-import { Bell, Boxes, Building2, CalendarDays, CircleHelp, ClipboardList, Clock3, Gauge, Handshake, LifeBuoy, Mail, PanelLeft, QrCode, ScanLine, Search as SearchIcon, Settings2, UserCog, Warehouse, } from 'lucide-vue-next';
+import { Bell, Boxes, Building2, CalendarDays, CircleHelp, ClipboardList, Clock3, FileText, Gauge, Handshake, LifeBuoy, Mail, PanelLeft, QrCode, ScanLine, Search as SearchIcon, Settings2, UserCog, Warehouse, } from 'lucide-vue-next';
 import Button from '../components/ui/Button.vue';
 import Separator from '../components/ui/Separator.vue';
 const sidebarItems = [
@@ -8,6 +8,7 @@ const sidebarItems = [
     { label: 'Request', icon: ClipboardList, to: '/requests/local', group: 'Operations' },
     { label: 'Inventory', icon: Boxes, to: '/inventory', group: 'Operations' },
     { label: 'Cycle Count', icon: QrCode, to: '/cycle-count', group: 'Operations' },
+    { label: 'ASN', icon: FileText, to: '/asn', group: 'Operations' },
     { label: 'Customers', icon: Handshake, to: '/customers', group: 'Operations' },
     { label: 'Warehouses', icon: Warehouse, to: '/warehouses', group: 'Operations' },
     { label: 'Scanner', icon: ScanLine, to: '/scanner', group: 'Operations' },
